@@ -1,0 +1,21 @@
+.banner {
+    background: linear-gradient(120deg, var(--navy) 0%, var(--teal) 100%);
+    color: white;
+    padding: var(--s-8) 0;
+    text-align: center;
+}
+
+.banner h2 {
+    color: white;
+    margin-bottom: var(--s-2);
+    font-size: 34px;
+}
+
+.banner p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 17px;
+    margin-bottom: var(--s-3);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}

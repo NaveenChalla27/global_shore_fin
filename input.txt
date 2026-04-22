@@ -1,0 +1,482 @@
+GLOBAL SHORE FIN SERVICES INC.
+Website Development Brief
+Complete Specification for Web Developer
+Version 1.0  |  April 2026  |  US Market Launch
+ 
+1.  Project Overview
+This document is the full website development specification for Global Shore Fin Services Inc. It covers every requirement the developer needs: site purpose, page structure, service categories, content guidelines, UI design system, UX flows, blog strategy, SEO, and technical stack. All decisions should be made in line with this document before any design or development begins.
+
+1.1  Company Background
+Global Shore Fin Services Inc. is a full-service financial outsourcing company headquartered in Tennessee State US, serving US-based individuals and businesses. The company offers US Payroll, US Payroll taxation, US Sales and use Tax, Individual Taxation, Business Taxation, US accounting, compliance, and business formation services. The long-term vision is to expand coverage to India, Canada, and Australia, but Phase 1 of the website focuses exclusively on the US market.
+
+1.2  Reference Websites Studied
+The following two websites were reviewed as design and content references:
+•	globalsaitaxfilers.com — clean service-first layout, strong CTA placement, good use of hero sections and service cards.
+•	taxmonkglobal.com — professional global branding, clear service categories, credibility-building with testimonials and stats.
+The Global Shore website should match this standard in professionalism, exceed it in clarity, and be built to scale globally as new markets are added.
+
+Goal Statement
+Build a professional, fast-loading, SEO-optimised website that positions Global Shore Fin Services Inc. as a trusted US financial services partner for Indian professionals, NRIs, small businesses, and immigrants — while laying the foundation for a global multi-country expansion.
+
+
+2.  Site Map & Page Structure
+The website will consist of the following top-level pages and sub-pages. Every page listed below must be built as a separate, SEO-optimised page (not a one-pager with anchors).
+
+Primary Navigation (Header Menu)
+•	Home
+•	About Us
+•	Services  →  (dropdown mega-menu)
+•	Industries We Serve
+•	Resources / Blog
+•	Careers
+•	Contact Us
+
+Services — Sub-Pages (each is its own URL)
+Each service listed below must have a dedicated page with a description, who it is for, what is included, FAQs, and a contact CTA. Services are grouped into categories:
+
+Category A — Payroll & HR
+•	Payroll Services
+•	Payroll Taxation Services
+•	Payroll Compliance
+
+Category B — Accounting & Bookkeeping
+•	Bookkeeping Services
+•	Accounting Services
+•	Bank Reconciliations
+•	Cash Reconciliations
+•	Accounts Receivable
+•	Accounts Payable
+
+Category C — Taxation
+•	Individual Taxation
+•	Business Taxation
+•	Expat Taxation
+•	Sales and Use Tax Services
+
+Category D — Audit & Compliance
+•	Auditing
+•	Payroll Compliance
+•	Other State Compliance
+
+Category E — Business Formation
+•	LLC Formation
+•	Company Incorporation
+•	Other State Compliance
+
+
+3.  Service Descriptions — What to Write on Each Page
+Every service page must follow this content structure: (1) Hero headline with the service name and a one-line benefit statement. (2) What this service is — a short paragraph in plain English. (3) Who it is for — bullet list of target clients. (4) What is included — bullet list of deliverables. (5) Why choose Global Shore — 2–3 differentiators. (6) FAQ — 3 to 5 common questions with answers. (7) CTA — 'Book a Free Consultation' button.
+
+Payroll Services
+Description: End-to-end payroll processing for US businesses. We calculate employee wages, deduct federal and state taxes, issue pay stubs, manage direct deposits, and file quarterly payroll reports.
+Who it's for: Small businesses, startups, mid-size companies with W-2 employees, businesses with multi-state payroll needs.
+Includes: Weekly / bi-weekly / monthly payroll runs, W-2 / 1099 generation, direct deposit setup, payroll registers, year-end reporting.
+
+Payroll Taxation Services
+Description: Accurate calculation and remittance of all payroll-related taxes including federal income tax withholding, FICA (Social Security & Medicare), FUTA/SUTA, and state income taxes.
+Includes: Federal 941/940 filings, state unemployment insurance, payroll tax deposits, penalty avoidance advisory.
+
+Payroll Compliance
+Description: Ensuring your payroll practices comply with US federal and state labour laws, DOL requirements, and IRS regulations.
+Includes: Compliance audits, worker classification (W-2 vs 1099), minimum wage compliance, record retention guidance.
+
+Bookkeeping Services
+Description: Organised, accurate recording of all financial transactions. We maintain your general ledger, categorise income and expenses, and produce monthly reports.
+Includes: Monthly transaction recording, chart of accounts setup, income statements, balance sheets, QuickBooks/Xero management.
+
+Accounting Services
+Description: Full-cycle accounting support including financial statement preparation, management reporting, budgeting, and strategic financial analysis.
+Includes: Monthly/quarterly/annual financial statements, cash flow analysis, budget vs actual reporting, CFO advisory.
+
+Bank Reconciliations
+Description: Monthly matching of your bank statements against your books to catch errors, fraud, and discrepancies.
+Includes: Monthly reconciliation reports, variance explanations, journal entry corrections.
+
+Cash Reconciliations
+Description: Reconciliation of cash balances across multiple accounts, petty cash, and POS systems to ensure accuracy.
+
+Accounts Receivable
+Description: Management of all money owed to your business — from invoicing through collection follow-up.
+Includes: Invoice generation, AR ageing reports, payment follow-up, bad debt tracking.
+
+Accounts Payable
+Description: Management of all bills and vendor payments to keep your business in good standing and optimise cash flow.
+Includes: Vendor invoice entry, payment scheduling, AP ageing reports, 1099 vendor tracking.
+
+Individual Taxation
+Description: Federal and state income tax return preparation for US residents, NRIs, green card holders, H1B / L1 visa holders, and US citizens abroad.
+Includes: Form 1040, state returns, FBAR/FATCA filings, ITIN applications, amended returns (1040-X), tax planning.
+
+Business Taxation
+Description: Tax preparation and planning for all US business entity types.
+Includes: Form 1120 (C-Corp), 1120-S (S-Corp), 1065 (Partnership), 1040 Schedule C (Sole Proprietor), estimated quarterly taxes, state business returns.
+
+Expat Taxation
+Description: Specialised tax services for US citizens and green card holders living outside the US, and for foreign nationals working in the US.
+Includes: Foreign Earned Income Exclusion (Form 2555), Foreign Tax Credit (Form 1116), FBAR (FinCEN 114), Form 8938, tax treaty analysis.
+
+Sales & Use Tax Services
+Description: Registration, filing, and compliance management for sales tax across all US states where your business has nexus.
+Includes: Nexus analysis, state registration, monthly/quarterly/annual filings, VDA (Voluntary Disclosure Agreements).
+
+Auditing
+Description: Independent review and verification of financial records to ensure accuracy and compliance.
+Includes: Internal audit support, preparation for external audits, audit readiness reviews, financial statement audits for small businesses.
+
+LLC Formation & Company Incorporation
+Description: Complete business formation service for individuals and NRIs looking to register a business in the US.
+Includes: State selection advisory, Articles of Organisation / Incorporation filing, EIN application, operating agreement drafting, registered agent service, S-Corp election, banking setup guidance.
+
+Other State Compliance
+Description: Ongoing compliance filings for businesses operating in multiple US states.
+Includes: Annual reports, foreign qualification filings, state business licence renewals, registered agent maintenance.
+
+
+4.  Home Page — Section-by-Section Layout
+The home page is the most important page. Every section below must be built in this order.
+
+Section 1 — Hero Banner
+•	Full-width hero with a professional background (abstract finance illustration or city skyline — no stock photos of people).
+•	Headline (H1): 'Your US Financial Partner — Payroll, Tax, Accounting & Compliance.'
+•	Sub-headline: 'Expert services for US businesses, NRIs, expats, and immigrants. Delivered remotely. Trusted globally.'
+•	Two CTA buttons: 'Book a Free Consultation' (primary, filled) and 'Explore Services' (secondary, outlined).
+•	Trust bar below hero: logos or text badges — 'IRS Authorised', 'QuickBooks ProAdvisor', 'CPA Supervised', 'Serving clients in 50 US States'.
+
+Section 2 — Services Overview Grid
+•	Headline: 'Everything Your Business Needs, Under One Roof'
+•	5 category cards in a grid: Payroll & HR, Taxation, Accounting, Compliance, Business Formation.
+•	Each card: icon, category name, one-line description, 'Learn More' link.
+•	Below grid: 'View All Services →' button.
+
+Section 3 — Why Choose Global Shore
+•	3-column layout with icons:
+◦	100% Remote Delivery — work with us from anywhere in the US
+◦	IRS-Compliant & CPA-Supervised — accuracy you can count on
+◦	India-US Bridge — deep understanding of NRI, expat, and immigrant tax needs
+◦	Flat-Rate Pricing — no surprise bills, transparent fee structure
+
+Section 4 — Stats / Social Proof Bar
+•	4 stats in a dark navy band: '500+ Clients Served', '15+ Years Combined Experience', '50 US States Covered', '98% Client Retention Rate'.
+
+Section 5 — Who We Serve (Industries / Client Types)
+•	Cards or icon grid for client segments:
+◦	Small & Mid-Size US Businesses
+◦	HNI’s, NRIs & Indian Immigrants
+◦	H1B / L1 / OPT Visa Holders
+◦	US Expats Living Abroad
+◦	Freelancers & Independent Contractors
+◦	Startups & New LLCs
+
+Section 6 — Process (How It Works)
+•	4-step horizontal timeline:
+◦	Step 1 — Book a Free Consultation
+◦	Step 2 — Share Your Documents Securely
+◦	Step 3 — We Do the Work
+◦	Step 4 — Review, Approve & File
+
+Section 7 — Testimonials
+•	3 rotating testimonial cards with client name, location, service used, and star rating.
+•	Include real quotes once available; use placeholder cards during development.
+
+Section 8 — Latest Blog Posts
+•	3 most recent blog post cards: thumbnail, category tag, title, 1-line excerpt, 'Read More' link.
+
+Section 9 — CTA Banner
+•	Full-width teal/navy band: 'Ready to get started? Book your free 30-minute consultation today.'
+•	CTA button: 'Schedule a Call'.
+
+Section 10 — Footer
+•	Logo + tagline on the left.
+•	4 footer columns: Services, Quick Links, Contact Info, Social Media.
+•	Bottom bar: copyright, Privacy Policy link, Terms & Conditions link, Disclaimer.
+•	WhatsApp floating button (bottom right corner on all pages).
+
+
+5.  Inner Pages — Specifications
+
+About Us Page
+•	Company story — who we are, where we're based, who we serve.
+•	Mission & Vision statements.
+•	Our Values — 4 to 5 values with icons.
+•	Team section — photo, name, designation, short bio for each team member.
+•	A note on global expansion plans (India, Canada, Australia — coming soon).
+
+Industries / Who We Serve Page
+•	One section per client type (NRIs, Small Businesses, Expats, Startups, etc.).
+•	Each section: pain points they face, how Global Shore solves them, relevant services.
+
+Contact Page
+•	Contact form: Name, Email, Phone, Country, Service Interested In (dropdown), Message.
+•	WhatsApp direct link.
+•	Office address and email.
+•	Calendly embed or booking widget for scheduling a consultation call.
+•	Google Map embed if a physical address is available.
+
+Careers Page
+•	Brief intro about company culture.
+•	'Open Positions' section — even if empty at launch, include a placeholder and an email link to apply.
+
+Privacy Policy & Terms Pages
+•	Standard pages, legally reviewed, clearly linked in the footer.
+
+
+6.  UI Design System
+
+6.1  Brand Colours
+Colour Name	Hex Value & Usage
+Primary Navy	#0D3B6E — used for headings, header background, CTA fills
+Primary Teal	#0F6E56 — used for accents, hover states, section highlights
+Light Background	#F2F4F7 — alternating section backgrounds
+White	#FFFFFF — card backgrounds, form fields
+Dark Text	#101828 — all body copy
+Muted Text	#667085 — captions, metadata, helper text
+Warning / Accent	#F79009 — used sparingly for badges, highlights
+
+6.2  Typography
+•	Heading Font: Inter (Google Fonts) — Bold (700) for H1/H2, Semibold (600) for H3.
+•	Body Font: Inter — Regular (400) for body copy, 16px minimum size.
+•	Fallback stack: 'Inter', 'Helvetica Neue', Arial, sans-serif.
+•	No decorative or script fonts anywhere on the site.
+•	Minimum font size on mobile: 15px.
+
+6.3  Typography Scale
+Element	Specification
+H1 — Page Title	48px desktop / 32px mobile, Bold, Navy
+H2 — Section Heading	36px desktop / 26px mobile, Bold, Navy
+H3 — Sub-Heading	24px desktop / 20px mobile, Semibold, Teal
+Body / Paragraph	16px, Regular, #101828, line-height 1.7
+Caption / Label	13px, Regular, #667085
+CTA Button Text	15px, Semibold, uppercase, letter-spacing 0.5px
+
+6.4  Buttons
+•	Primary Button: Navy fill (#0D3B6E), white text, 8px border-radius, 48px height, hover darkens 10%.
+•	Secondary Button: Teal outline, teal text, no fill, hover fills teal with white text.
+•	Ghost Button: No fill, no border, underline only — used inside cards for 'Learn More' links.
+•	Floating WhatsApp Button: Green (#25D366), fixed bottom-right, 56px circle, icon only.
+
+6.5  Cards & Components
+•	Service Cards: white background, 1px border (#E4E7EC), 12px radius, 24px padding, hover lifts with subtle shadow.
+•	Blog Cards: thumbnail (16:9), tag badge, title (H3 weight), excerpt text, 'Read More' link.
+•	Stat Boxes: dark navy background, large number (48px bold white), label below (14px muted).
+•	Testimonial Cards: quote icon, text, client name, location, service tag, star rating.
+•	Team Cards: circular photo (120×120), name, designation, LinkedIn icon.
+
+6.6  Spacing System
+•	Base unit: 8px. All spacing should be multiples of 8 (8, 16, 24, 32, 48, 64, 96px).
+•	Section vertical padding: 96px top and bottom on desktop, 64px on mobile.
+•	Container max-width: 1200px, centred.
+•	Grid gap: 24px default.
+
+6.7  Icons
+•	Use Lucide Icons or Heroicons — clean, line-based, consistent stroke weight.
+•	Icon size in cards: 40×40px in a 72×72 teal-tinted circle background.
+•	Do not use flat-colour emoji or inconsistent icon libraries.
+
+6.8  Imagery
+•	No generic stock photos of people pointing at charts or shaking hands.
+•	Use abstract finance illustrations (isometric style preferred), city skylines, or geometric patterns.
+•	Source: unDraw.co, Storyset, Freepik premium (with license), or commission custom illustrations.
+•	All images must be compressed (WebP format, max 150KB per image).
+
+
+7.  UX — User Experience Specifications
+
+7.1  Primary User Journeys to Optimise
+Journey 1 — NRI / Immigrant Tax Help
+•	Lands on Home → reads 'Who We Serve' → clicks 'NRI / Immigrant' → reads service page → books consultation.
+
+Journey 2 — Small Business Looking for Payroll
+•	Searches 'payroll services for small business' → lands on Payroll Services page → reads inclusions → fills contact form.
+
+Journey 3 — Expat Needing Tax Filing
+•	Lands on Expat Taxation page from Google → reads FAQs → clicks WhatsApp button → begins conversation.
+
+7.2  Navigation UX
+•	Sticky header on scroll — logo left, nav centre, 'Book Consultation' CTA button right.
+•	Services dropdown: mega-menu with all 5 categories and their sub-services listed.
+•	Mobile: hamburger menu, full-screen slide-in panel, accordion for service categories.
+•	Breadcrumbs on all inner pages for navigation and SEO.
+
+7.3  Conversion Optimisation
+•	Every service page must have at least two CTAs: one above the fold and one at the bottom.
+•	Exit-intent popup: 'Before you go — get a free tax checklist.' Collects email.
+•	Free consultation offer must appear on: home hero, about page, every service page, contact page.
+•	WhatsApp button visible on all pages at all times (floating).
+•	Calendly or similar booking widget embedded on the Contact page (removes friction).
+
+7.4  Accessibility
+•	WCAG 2.1 AA compliant minimum.
+•	All images must have descriptive alt text.
+•	All form fields must have labels (not just placeholder text).
+•	Colour contrast ratio minimum 4.5:1 for body text.
+•	Keyboard navigable: all interactive elements reachable and operable via keyboard.
+
+7.5  Mobile UX
+•	Mobile-first design — design for 375px screen width first, then scale up.
+•	Tap targets minimum 44×44px.
+•	No horizontal scrolling on any page.
+•	Click-to-call and click-to-WhatsApp links on all contact references.
+•	Forms: large inputs, numeric keyboards for phone fields, auto-fill enabled.
+
+7.6  Page Speed & Performance
+•	Target: Google PageSpeed score 90+ on mobile and desktop.
+•	Lazy-load all images below the fold.
+•	No heavy JavaScript libraries unless absolutely necessary.
+•	Use a CDN for all static assets.
+•	Core Web Vitals targets: LCP < 2.5s, FID < 100ms, CLS < 0.1.
+
+
+8.  Blog / Resources Strategy
+
+8.1  Purpose of the Blog
+The blog drives organic SEO traffic, establishes Global Shore as a trusted expert, and nurtures leads who are in the research phase before booking a consultation.
+
+8.2  Blog Categories
+•	US Tax Tips — practical tax advice for individuals, NRIs, and businesses.
+•	Payroll & HR — payroll compliance updates, how-tos, IRS deadlines.
+•	Accounting Insights — bookkeeping best practices, QuickBooks tips, financial planning.
+•	Business Formation — how to start a US business as an NRI, LLC vs Corporation, etc.
+•	Expat Corner — FBAR, FATCA, foreign income exclusions, living abroad tax guide.
+•	Compliance Updates — IRS news, state tax law changes, deadline reminders.
+•	Client Success Stories — anonymised case studies (once approved by clients).
+
+8.3  Target Blog Topics (First 20 Posts — SEO Priority)
+High-search-volume topics to publish first:
+•	How to File US Taxes as an NRI — Step by Step (2026)
+•	H1B Visa Holder Tax Filing Guide — What You Need to Know
+•	LLC vs S-Corp: Which is Better for Your US Business?
+•	What is FBAR and Do I Need to File It?
+•	Payroll Tax Deadlines for US Small Businesses in 2026
+•	How to Set Up Payroll for the First Time in the US
+•	Sales Tax Nexus Explained: Do You Owe Sales Tax in Every State?
+•	Bookkeeping vs Accounting — What's the Difference and Which Do You Need?
+•	How to Incorporate a US Company as a Non-Resident
+•	ITIN Application Guide for Non-US Residents
+•	What Happens if You Don't File US Taxes as an Expat?
+•	Quarterly Estimated Tax Payments — Who Needs to Pay and How
+•	Top 10 Tax Deductions for Freelancers and Independent Contractors
+•	How to Close a US Business the Right Way — Tax & Compliance Checklist
+•	W-2 vs 1099 — What's the Difference for Your Workers?
+•	Moving to the US on a Visa — Your Tax First Steps
+•	State Income Tax Guide for Remote Workers
+•	Bank Reconciliation: Why It Matters and How Often to Do It
+•	How to Choose an Accountant for Your Small Business
+•	Year-End Tax Checklist for US Business Owners
+
+8.4  Blog Post Format
+•	Length: 1,200 to 2,500 words per post.
+•	Structure: Title (H1) → Introduction → Table of Contents → Sections (H2/H3) → Key Takeaways → CTA.
+•	Every post must end with: 'Need help with [topic]? Book a free consultation with our experts today.'
+•	Include a featured image, meta description (150–160 chars), focus keyword, and internal links to relevant service pages.
+•	Publish frequency: 2 posts per week initially, then 1 per week once archive grows.
+
+
+9.  SEO & Technical Requirements
+
+9.1  On-Page SEO
+•	Every page must have a unique title tag (50–60 characters) and meta description (150–160 characters).
+•	H1 tag must appear exactly once per page and contain the primary keyword.
+•	URL structure: /services/payroll-services/, /blog/h1b-tax-filing-guide/ — lowercase, hyphens only.
+•	Schema markup: Organisation, LocalBusiness, FAQPage on service pages, BlogPosting on blog posts.
+•	XML sitemap and robots.txt must be configured at launch.
+
+9.2  Target Keywords (Primary)
+Keyword	Keyword
+US tax services for NRI	Expat taxation USA
+Payroll services for small business	LLC formation for non-resident
+Bookkeeping services USA	FBAR filing services
+H1B tax filing help	Sales tax compliance USA
+Accountant for immigrants USA	Business tax preparation USA
+
+9.3  Technical SEO
+•	HTTPS on all pages (SSL certificate mandatory).
+•	301 redirects for any URL changes.
+•	Canonical tags on all pages to avoid duplicate content.
+•	Google Analytics 4 and Google Search Console connected at launch.
+•	Open Graph and Twitter Card meta tags for social sharing.
+
+
+10.  Technology Stack Recommendation
+
+Developer Note
+The stack below is recommended. Developer may propose alternatives — any change must be approved before build begins.
+
+Component	Tool / Platform
+CMS Platform	WordPress with Elementor Pro (or Webflow — developer to advise)
+Hosting	WP Engine, Kinsta, or SiteGround — managed WordPress, US server location
+SSL	Let's Encrypt (free) or Cloudflare SSL
+CDN	Cloudflare (free tier is sufficient for launch)
+Contact Forms	WPForms or Gravity Forms with email + CRM notification
+Booking Widget	Calendly embed on Contact page
+WhatsApp Button	WATI or CallHippo WhatsApp widget
+Analytics	Google Analytics 4 + Google Tag Manager
+SEO Plugin	Rank Math or Yoast SEO
+Speed	WP Rocket or LiteSpeed Cache
+Blog Images	WebP format, compressed via ShortPixel or Smush
+Email Marketing	Mailchimp or ConvertKit — for blog subscriber list
+Security	Wordfence or Sucuri
+Backups	Daily automated backups via Updraft Plus or hosting provider
+
+
+11.  Content Tone & Voice Guidelines
+
+All written content on the website must follow these tone guidelines so the copy feels consistent whether written by the company, a copywriter, or a content agency.
+
+•	Professional but approachable — not cold or corporate. Think 'trusted advisor' not 'big accounting firm'.
+•	Plain English — no jargon unless necessary. When a tax term is used, explain it simply.
+•	Empathetic — many clients are NRIs, immigrants, or first-time US business owners who find US taxes confusing. Acknowledge that and reassure.
+•	Action-oriented — every page should guide the reader toward a next step (read this, contact us, download this).
+•	Confident but not arrogant — show expertise, not ego.
+•	Global but US-focused — for Phase 1, all examples and references should be US-specific.
+
+
+12.  Pre-Launch Checklist
+
+Before going live, the following must be verified by the developer:
+
+•	All 20+ service pages live and SEO-optimised.
+•	All forms tested — submissions received via email and CRM.
+•	WhatsApp floating button tested on mobile and desktop.
+•	Google Analytics 4 and Search Console connected and tracking.
+•	All images compressed to WebP, alt text added.
+•	SSL certificate active — all pages load on HTTPS.
+•	Mobile responsiveness tested on iOS Safari, Android Chrome, and 3 screen sizes.
+•	PageSpeed score 90+ on Lighthouse for both mobile and desktop.
+•	Privacy Policy, Terms & Conditions, and Disclaimer pages live.
+•	404 error page designed and configured.
+•	XML sitemap submitted to Google Search Console.
+•	Calendly booking widget live and tested.
+•	All internal links checked — no broken links.
+•	First 5 blog posts published before launch.
+
+
+13.  Future Phases — Global Expansion
+
+Phase 1 (current): US market. Phase 2: Add India services section. Phase 3: Add Canada services. Phase 4: Add Australia services.
+
+The developer must build the site with this expansion in mind. Specifically:
+•	Navigation should include a country selector in the header (hidden in Phase 1, activated in Phase 2).
+•	URL structure must support /in/ for India, /ca/ for Canada, /au/ for Australia sub-directories — or a subdomain approach — discuss with developer.
+•	The CMS should allow easy duplication of service page templates for new markets.
+•	India services to include: Payroll, Payroll Taxation, GST/HST/PST Filings, Accounting, Auditing, Individual Taxation, Business Taxation, Bank Reconciliations, Cash Reconciliations, Accounts Receivable, Accounts Payable.
+
+
+14.  Deliverables & Handover
+
+What the Developer Must Deliver
+•	Fully functional website on staging environment for review before go-live.
+•	All source files (theme, custom CSS, custom JS, page templates).
+•	CMS training session (30 minutes) so the team can add blog posts and edit content.
+•	Documentation: how to add a new blog post, how to edit service pages, how to update contact info.
+•	30-day post-launch support for bug fixes (no new features in this window).
+
+What the Company Will Provide to the Developer
+•	Final approved logo files in SVG and PNG format.
+•	Brand colours (as listed in Section 6.1).
+•	All written content for each service page (company to write or hire a copywriter).
+•	Team photos (professional headshots, minimum 800×800px).
+•	Real client testimonials (3 to 5 to start).
+•	Any certifications or accreditation logos (IRS e-file provider, CPA seal, etc.).
+
+— End of Website Development Brief —
+Global Shore Fin Services Inc.  |  globalshoreFinservices.com  |  April 2026

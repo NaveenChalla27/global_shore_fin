@@ -1,0 +1,83 @@
+.footer {
+    background: #0a2747;
+    color: rgba(255, 255, 255, 0.78);
+    padding: var(--s-8) 0 var(--s-3);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+    gap: var(--s-4);
+    margin-bottom: var(--s-6);
+}
+
+.footer h5 {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 var(--s-2);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+    font-size: 14.5px;
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.brand {
+    color: white;
+    margin-bottom: var(--s-2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.brandMark {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 4px;
+    object-fit: contain;
+    display: block;
+}
+
+.tag {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+.bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: var(--s-3);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.bottom a {
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: var(--s-2);
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

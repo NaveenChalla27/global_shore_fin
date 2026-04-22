@@ -1,0 +1,64 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--s-3);
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--s-3);
+    position: relative;
+}
+
+.quote {
+    color: var(--teal);
+    opacity: 0.3;
+    margin-bottom: var(--s-1);
+}
+
+.text {
+    color: var(--text);
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin-bottom: var(--s-3);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: var(--s-2);
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--teal));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.name {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 14.5px;
+}
+
+.meta {
+    font-size: 12.5px;
+    color: var(--muted);
+}
+
+.stars {
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: var(--s-1);
+}

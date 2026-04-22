@@ -1,0 +1,122 @@
+.container {
+    max-width: var(--container);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+}
+
+.section {
+    padding: var(--s-12) 0;
+}
+
+.sectionAlt {
+    composes: section;
+    background: var(--bg-light);
+}
+
+.sectionHead {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--s-6);
+}
+
+.sectionHead p {
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: var(--s-1);
+}
+
+.center {
+    text-align: center;
+    margin-top: var(--s-4);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btnPrimary {
+    composes: btn;
+    background: var(--navy);
+    color: var(--white);
+}
+
+.btnPrimary:hover {
+    background: var(--navy-dark);
+    text-decoration: none;
+}
+
+.btnSecondary {
+    composes: btn;
+    background: transparent;
+    border-color: var(--teal);
+    color: var(--teal);
+}
+
+.btnSecondary:hover {
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.btnGhost {
+    background: transparent;
+    color: var(--teal);
+    height: auto;
+    padding: 0;
+    text-transform: none;
+    letter-spacing: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14.5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btnGhost:hover {
+    text-decoration: underline;
+}
+
+.btnLight {
+    composes: btn;
+    background: var(--white);
+    color: var(--navy);
+}
+
+.btnLight:hover {
+    background: var(--bg-light);
+}
+
+@media (max-width: 700px) {
+    .section,
+    .sectionAlt {
+        padding: var(--s-8) 0;
+    }
+}

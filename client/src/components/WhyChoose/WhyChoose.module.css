@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: var(--s-4);
+}
+
+.iconCircle {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(13, 59, 110, 0.08);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--s-2);
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 8px;
+}
+
+.desc {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}

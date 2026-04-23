@@ -4,7 +4,9 @@ import * as countries from "../controllers/countryController.js";
 import * as contacts from "../controllers/contactController.js";
 import * as posts from "../controllers/postController.js";
 import * as bookings from "../controllers/bookingController.js";
+import * as customers from "../controllers/customerController.js";
 import * as health from "../controllers/healthController.js";
+import {requireAdmin} from "../middleware/requireAdmin.js";
 
 const router = Router();
 
@@ -35,7 +37,11 @@ router.put("/posts/:slug", posts.update);
 router.delete("/posts/:slug", posts.remove);
 
 // Consultation bookings
-router.get("/bookings", bookings.list);
+router.get("/bookings", requireAdmin, bookings.list);
 router.post("/bookings", bookings.create);
+
+// Customers
+router.get("/customers", requireAdmin, customers.list);
+router.post("/customers", customers.create);
 
 export default router;

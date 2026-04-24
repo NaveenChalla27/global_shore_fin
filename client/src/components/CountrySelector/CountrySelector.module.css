@@ -82,7 +82,7 @@
 }
 
 .itemActive {
-    background: rgba(15, 110, 86, 0.08);
+    background: rgba(36, 145, 175, 0.08);
     color: var(--navy);
     font-weight: 600;
 }

@@ -1,9 +1,9 @@
 .hero {
     position: relative;
     background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(15, 110, 86, 0.18), transparent 60%),
-        radial-gradient(900px 500px at 0% 100%, rgba(13, 59, 110, 0.18), transparent 60%),
-        linear-gradient(180deg, #f6f9fc 0%, #ffffff 100%);
+        radial-gradient(1200px 600px at 80% -10%, rgba(36, 145, 175, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 0% 100%, rgba(26, 122, 150, 0.18), transparent 60%),
+        linear-gradient(180deg, #f0f7fa 0%, #ffffff 100%);
     padding: var(--s-12) 0 var(--s-8);
     overflow: hidden;
 }
@@ -76,7 +76,7 @@
     border-radius: 20px;
     background: linear-gradient(135deg, var(--navy), var(--teal));
     overflow: hidden;
-    box-shadow: 0 30px 80px -20px rgba(13, 59, 110, 0.4);
+    box-shadow: 0 30px 80px -20px rgba(26, 122, 150, 0.4);
 }
 
 .visual::before,
@@ -91,7 +91,7 @@
 .visual::before {
     width: 280px;
     height: 280px;
-    background: #5cd0a8;
+    background: #2491af;
     top: -40px;
     right: -40px;
 }
@@ -99,7 +99,7 @@
 .visual::after {
     width: 240px;
     height: 240px;
-    background: #4a8be0;
+    background: #6bbfd8;
     bottom: -40px;
     left: -40px;
 }
@@ -151,7 +151,7 @@
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background: rgba(15, 110, 86, 0.12);
+    background: rgba(36, 145, 175, 0.12);
     color: var(--teal);
     display: flex;
     align-items: center;

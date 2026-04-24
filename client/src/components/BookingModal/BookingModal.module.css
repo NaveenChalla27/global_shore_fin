@@ -1,7 +1,7 @@
 .backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(13, 25, 48, 0.55);
+    background: rgba(14, 58, 69, 0.55);
     backdrop-filter: blur(4px);
     z-index: 10000;
     display: flex;
@@ -18,7 +18,7 @@
     max-width: 720px;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
-    box-shadow: 0 30px 80px rgba(13, 25, 48, 0.35);
+    box-shadow: 0 30px 80px rgba(14, 58, 69, 0.35);
     animation: pop 0.2s ease-out;
 }
 
@@ -130,7 +130,7 @@
 .field textarea:focus {
     outline: none;
     border-color: var(--navy);
-    box-shadow: 0 0 0 3px rgba(13, 59, 110, 0.12);
+    box-shadow: 0 0 0 3px rgba(26, 122, 150, 0.12);
 }
 
 .field textarea {

@@ -71,7 +71,7 @@
     border: 1px solid #eef0f4;
     border-radius: 12px;
     background: #fff;
-    box-shadow: 0 1px 2px rgba(13, 25, 48, 0.04);
+    box-shadow: 0 1px 2px rgba(14, 58, 69, 0.04);
 }
 
 .table {
@@ -145,7 +145,7 @@
     padding: 28px;
     display: grid;
     gap: 12px;
-    box-shadow: 0 4px 20px rgba(13, 25, 48, 0.06);
+    box-shadow: 0 4px 20px rgba(14, 58, 69, 0.06);
 }
 
 .loginCard h1 {
@@ -173,7 +173,7 @@
 .loginCard input:focus {
     outline: none;
     border-color: var(--navy);
-    box-shadow: 0 0 0 3px rgba(13, 59, 110, 0.12);
+    box-shadow: 0 0 0 3px rgba(26, 122, 150, 0.12);
 }
 
 .loginCard button {

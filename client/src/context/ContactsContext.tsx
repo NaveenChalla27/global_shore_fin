@@ -9,7 +9,7 @@ const FALLBACK: Contacts = {
     hours: "Mon-Fri: 9AM - 7PM (MST)",
     whatsapp: "10000000000",
     address: "Tennessee, United States",
-    socials: {linkedin: "#", twitter: "#", youtube: "#"},
+    socials: {linkedin: "#", twitter: "#", instagram: "#"},
 };
 
 type ContactsContextValue = {

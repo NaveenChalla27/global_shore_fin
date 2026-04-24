@@ -94,16 +94,6 @@ export default function ServiceDetailPage() {
                                     ))}
                                 </div>
                             </div>
-
-                            <div className={styles.block}>
-                                <button
-                                    type="button"
-                                    className={shared.btnPrimary}
-                                    onClick={() => open({service: service.name, source: "service-page-bottom"})}
-                                >
-                                    Book a Free Consultation
-                                </button>
-                            </div>
                         </article>
 
                         <aside className={styles.aside}>
@@ -133,22 +123,6 @@ export default function ServiceDetailPage() {
                             )}
                         </aside>
                     </div>
-                </div>
-            </section>
-
-            <section className={styles.bottomCta}>
-                <div className={shared.container}>
-                    <h2>Ready to get started?</h2>
-                    <p>Book your free 30-minute consultation today.</p>
-                    <button
-                        type="button"
-                        className={shared.btnPrimary}
-                        onClick={() =>
-                            open({service: service.name, source: "service-page-banner", title: "Schedule a Call"})
-                        }
-                    >
-                        Schedule a Call
-                    </button>
                 </div>
             </section>
         </>

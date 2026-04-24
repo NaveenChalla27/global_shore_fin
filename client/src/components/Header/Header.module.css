@@ -8,7 +8,7 @@
 }
 
 .topBar {
-    background: linear-gradient(135deg, var(--navy), var(--teal));
+    background: #1a7a96;
     color: #fff;
     font-size: 13px;
 }
@@ -178,7 +178,7 @@
     width: min(1100px, calc(100vw - 32px));
     background: #fff; border: 1px solid var(--border);
     border-radius: var(--radius);
-    box-shadow: 0 12px 40px rgba(13, 59, 110, 0.15);
+    box-shadow: 0 12px 40px rgba(26, 122, 150, 0.15);
     padding: var(--s-4);
     display: grid; grid-template-columns: repeat(5, minmax(160px, 1fr));
     gap: var(--s-3); z-index: 100;
@@ -213,7 +213,7 @@
 .mobileBackdrop {
     position: fixed;
     inset: 0;
-    background: rgba(13, 28, 50, 0.45);
+    background: rgba(14, 58, 69, 0.45);
     z-index: 9998;
     animation: fadeIn 0.15s ease-out;
 }
@@ -226,7 +226,7 @@
     width: min(360px, 88vw);
     background: #fff;
     z-index: 9999;
-    box-shadow: -8px 0 24px rgba(13, 59, 110, 0.15);
+    box-shadow: -8px 0 24px rgba(26, 122, 150, 0.15);
     overflow-y: auto;
     padding: var(--s-3) var(--s-3) var(--s-6);
     animation: slideIn 0.2s ease-out;

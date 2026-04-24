@@ -36,7 +36,7 @@ export type Contacts = {
     hours?: string;
     whatsapp?: string;
     address?: string;
-    socials?: {linkedin?: string; twitter?: string; youtube?: string};
+    socials?: {linkedin?: string; twitter?: string; instagram?: string};
 };
 
 const FALLBACK_CONTACTS: Contacts = {
@@ -47,7 +47,7 @@ const FALLBACK_CONTACTS: Contacts = {
     hours: "Mon\u2013Fri  9am \u2013 6pm ET",
     whatsapp: "10000000000",
     address: "Hyderabad, India",
-    socials: {linkedin: "#", twitter: "#", youtube: "#"},
+    socials: {linkedin: "#", twitter: "#", instagram: "#"},
 };
 
 export async function fetchContacts(signal?: AbortSignal): Promise<Contacts> {

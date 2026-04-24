@@ -6,7 +6,6 @@ import WhoWeServe from "../components/WhoWeServe/WhoWeServe";
 import Process from "../components/Process/Process";
 import Testimonials from "../components/Testimonials/Testimonials";
 import BlogPosts from "../components/BlogPosts/BlogPosts";
-import CTABanner from "../components/CTABanner/CTABanner";
 
 export default function HomePage() {
     return (
@@ -19,7 +18,6 @@ export default function HomePage() {
             <Process />
             <Testimonials />
             <BlogPosts />
-            <CTABanner />
         </>
     );
 }

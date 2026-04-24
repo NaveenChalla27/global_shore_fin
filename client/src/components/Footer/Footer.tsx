@@ -89,10 +89,10 @@ export default function Footer() {
                                     </a>
                                 </li>
                             )}
-                            {socials.youtube && (
+                            {socials.instagram && (
                                 <li>
-                                    <a href={socials.youtube} target="_blank" rel="noopener noreferrer">
-                                        YouTube
+                                    <a href={socials.instagram} target="_blank" rel="noopener noreferrer">
+                                        Instagram
                                     </a>
                                 </li>
                             )}

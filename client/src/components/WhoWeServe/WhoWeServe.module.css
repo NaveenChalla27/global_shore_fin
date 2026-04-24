@@ -17,7 +17,7 @@
 
 .card:hover {
     border-color: var(--teal);
-    background: rgba(15, 110, 86, 0.04);
+    background: rgba(36, 145, 175, 0.04);
 }
 
 .iconCircle {

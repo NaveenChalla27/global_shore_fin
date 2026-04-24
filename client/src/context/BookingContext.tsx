@@ -1,6 +1,6 @@
 import {createContext, useCallback, useContext, useMemo, useState, type ReactNode} from "react";
 
-type OpenOptions = {service?: string; source?: string; title?: string};
+type OpenOptions = {service?: string; title?: string};
 
 type BookingContextValue = {
     isOpen: boolean;

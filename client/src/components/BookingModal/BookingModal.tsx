@@ -28,13 +28,14 @@ const EMPTY: BookingInput = {
     service: "",
     preferredAt: "",
     message: "",
-    source: "website",
 };
 
 export default function BookingModal() {
     const {isOpen, options, close} = useBooking();
     const {country, countries} = useCountry();
     const [form, setForm] = useState<BookingInput>(EMPTY);
+    const [preferredDate, setPreferredDate] = useState("");
+    const [preferredTime, setPreferredTime] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [done, setDone] = useState(false);
@@ -46,8 +47,9 @@ export default function BookingModal() {
             ...EMPTY,
             country: country?.name ?? "",
             service: options.service ?? "",
-            source: options.source ?? "website",
         });
+        setPreferredDate("");
+        setPreferredTime("");
         setError(null);
         setDone(false);
     }, [isOpen, options, country]);
@@ -77,7 +79,8 @@ export default function BookingModal() {
         setSubmitting(true);
         setError(null);
         try {
-            await createBooking(form);
+            const preferredAt = [preferredDate, preferredTime].filter(Boolean).join(" ").trim();
+            await createBooking({...form, preferredAt});
             setDone(true);
         } catch (err) {
             setError((err as Error).message || "Could not submit. Please try again.");
@@ -179,14 +182,27 @@ export default function BookingModal() {
                                     </select>
                                 </div>
                                 <div className={styles.field}>
-                                    <label htmlFor="bk-when">Preferred date / time</label>
+                                    <label htmlFor="bk-date">Preferred date</label>
                                     <input
-                                        id="bk-when"
-                                        placeholder="e.g. Tue afternoon ET"
-                                        value={form.preferredAt}
-                                        onChange={(e) => update("preferredAt", e.target.value)}
+                                        id="bk-date"
+                                        type="date"
+                                        min={new Date().toISOString().slice(0, 10)}
+                                        value={preferredDate}
+                                        onChange={(e) => setPreferredDate(e.target.value)}
                                     />
                                 </div>
+                            </div>
+                            <div className={styles.row}>
+                                <div className={styles.field}>
+                                    <label htmlFor="bk-time">Preferred time</label>
+                                    <input
+                                        id="bk-time"
+                                        type="time"
+                                        value={preferredTime}
+                                        onChange={(e) => setPreferredTime(e.target.value)}
+                                    />
+                                </div>
+                                <div className={styles.field} aria-hidden="true" />
                             </div>
                             <div className={styles.field}>
                                 <label htmlFor="bk-message">How can we help?</label>

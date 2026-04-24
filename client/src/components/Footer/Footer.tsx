@@ -10,7 +10,7 @@ export default function Footer() {
     const {country} = useCountry();
     const socials = contacts.socials ?? {};
     return (
-        <footer className={styles.footer}>
+        <footer id="contact" className={styles.footer}>
             <div className={shared.container}>
                 <div className={styles.grid}>
                     <div>

@@ -1,9 +1,9 @@
-// Application factory — wires middleware, docs, validator, routes, and error handler.
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import yaml from "js-yaml";
 import swaggerUi from "swagger-ui-express";
 import * as OpenApiValidator from "express-openapi-validator";
@@ -51,6 +51,7 @@ export function createApp() {
     app.use(compression());
     app.use(morgan(isProd ? "combined" : "dev"));
     app.use(cors(corsOptions));
+    app.use(cookieParser());
     app.use(express.json({limit: "1mb"}));
 
     // Spec + interactive docs (disabled in prod by default; set EXPOSE_DOCS=true to enable)

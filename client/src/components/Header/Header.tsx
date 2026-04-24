@@ -39,10 +39,12 @@ export default function Header() {
         }
         setMegaOpen(true);
     };
+
     const scheduleClose = () => {
         if (closeTimer.current) window.clearTimeout(closeTimer.current);
         closeTimer.current = window.setTimeout(() => setMegaOpen(false), 180);
     };
+
     return (
         <header className={styles.header}>
             <div className={styles.topBar}>
@@ -100,14 +102,9 @@ export default function Header() {
                     </span>
                     <Link to="/#industries">Industries</Link>
                     <Link to="/blog">Resources</Link>
-                    <Link to="/#careers">Careers</Link>
-                    <button
-                        type="button"
-                        className={styles.navLinkBtn}
-                        onClick={() => openBooking({source: "header-nav"})}
-                    >
+                    <Link to="/#contact" className={styles.navLinkBtn}>
                         Contact
-                    </button>
+                    </Link>
                 </nav>
                 <div className={styles.cta}>
                     <button
@@ -119,11 +116,7 @@ export default function Header() {
                     >
                         <IconMenu />
                     </button>
-                    <button
-                        type="button"
-                        className={shared.btnPrimary}
-                        onClick={() => openBooking({source: "header-cta"})}
-                    >
+                    <button type="button" className={shared.btnPrimary} onClick={() => openBooking({})}>
                         Book Consultation
                     </button>
                 </div>
@@ -185,19 +178,9 @@ export default function Header() {
                                 <Link to="/blog" onClick={() => setMobileOpen(false)}>
                                     Resources
                                 </Link>
-                                <Link to="/#careers" onClick={() => setMobileOpen(false)}>
-                                    Careers
+                                <Link to="/#contact" onClick={() => setMobileOpen(false)}>
+                                    Contact
                                 </Link>
-                                <button
-                                    type="button"
-                                    className={styles.mobileToggle}
-                                    onClick={() => {
-                                        setMobileOpen(false);
-                                        openBooking({source: "header-mobile"});
-                                    }}
-                                >
-                                    <span>Contact</span>
-                                </button>
                             </nav>
                         </div>
                     </>,

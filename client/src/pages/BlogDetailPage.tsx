@@ -107,11 +107,7 @@ export default function BlogDetailPage() {
                         <div className={styles.cta}>
                             <h3>Need help with {post.tag.toLowerCase()}?</h3>
                             <p>Book a free 30-minute consultation with our experts today.</p>
-                            <button
-                                type="button"
-                                className={shared.btnPrimary}
-                                onClick={() => open({source: `blog:${post.slug}`})}
-                            >
+                            <button type="button" className={shared.btnPrimary} onClick={() => open({})}>
                                 Book a Free Consultation
                             </button>
                         </div>

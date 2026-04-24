@@ -4,7 +4,10 @@ import * as countries from "../controllers/countryController.js";
 import * as contacts from "../controllers/contactController.js";
 import * as posts from "../controllers/postController.js";
 import * as bookings from "../controllers/bookingController.js";
+import * as testimonials from "../controllers/testimonialController.js";
+import * as auth from "../controllers/authController.js";
 import * as health from "../controllers/healthController.js";
+import {requireAuth} from "../middleware/authMiddleware.js";
 
 const router = Router();
 
@@ -34,8 +37,20 @@ router.get("/posts/:slug", posts.getOne);
 router.put("/posts/:slug", posts.update);
 router.delete("/posts/:slug", posts.remove);
 
-// Consultation bookings
-router.get("/bookings", bookings.list);
+// Auth
+router.post("/auth/login", auth.login);
+router.get("/auth/me", requireAuth, auth.me);
+router.post("/auth/logout", auth.logout);
+
+// Consultation bookings (list is admin-only)
+router.get("/bookings", requireAuth, bookings.list);
 router.post("/bookings", bookings.create);
+
+// Testimonials
+router.get("/testimonials", testimonials.list);
+router.post("/testimonials", testimonials.create);
+router.get("/testimonials/:id", testimonials.getOne);
+router.put("/testimonials/:id", testimonials.update);
+router.delete("/testimonials/:id", testimonials.remove);
 
 export default router;

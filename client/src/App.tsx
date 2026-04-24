@@ -9,6 +9,7 @@ import ServicesIndexPage from "./pages/ServicesIndexPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import AdminPage from "./pages/AdminPage";
 
 export default function App() {
     return (
@@ -22,6 +23,7 @@ export default function App() {
                     <Route path="/services/:slug" element={<ServiceDetailPage />} />
                     <Route path="/blog" element={<BlogIndexPage />} />
                     <Route path="/blog/:slug" element={<BlogDetailPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
                     <Route path="*" element={<HomePage />} />
                 </Routes>
             </main>

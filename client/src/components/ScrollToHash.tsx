@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 const HEADER_OFFSET = 120;
 
 export default function ScrollToHash() {
-    const {pathname, hash} = useLocation();
+    const {pathname, hash, key} = useLocation();
 
     useEffect(() => {
         if (hash) {
@@ -20,7 +20,7 @@ export default function ScrollToHash() {
             return () => window.clearTimeout(t);
         }
         window.scrollTo({top: 0, behavior: "instant" as ScrollBehavior});
-    }, [pathname, hash]);
+    }, [pathname, hash, key]);
 
     return null;
 }

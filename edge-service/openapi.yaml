@@ -11,6 +11,7 @@ servers:
     description: Local dev
 tags:
   - name: Health
+  - name: Auth
   - name: Countries
   - name: Services
   - name: Contacts
@@ -245,11 +246,73 @@ paths:
         "204": {description: Deleted}
         "404": {$ref: "#/components/responses/NotFound"}
 
+  /api/auth/login:
+    post:
+      tags: [Auth]
+      summary: Admin login — sets an httpOnly JWT cookie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username: {type: string}
+                password: {type: string, format: password}
+      responses:
+        "200":
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok]
+                properties:
+                  ok: {type: boolean}
+        "401": {$ref: "#/components/responses/Unauthorized"}
+
+  /api/auth/me:
+    get:
+      tags: [Auth]
+      summary: Verify session cookie and return current admin username
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [username]
+                properties:
+                  username: {type: string}
+        "401": {$ref: "#/components/responses/Unauthorized"}
+
+  /api/auth/logout:
+    post:
+      tags: [Auth]
+      summary: Clear the auth cookie
+      responses:
+        "200":
+          description: Logged out
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok]
+                properties:
+                  ok: {type: boolean}
+
   /api/bookings:
     get:
       tags: [Bookings]
       summary: List consultation booking requests
+      security:
+        - cookieAuth: []
       responses:
+        "401": {$ref: "#/components/responses/Unauthorized"}
         "200":
           description: List wrapper
           content:
@@ -294,7 +357,18 @@ components:
       required: true
       schema: {$ref: "#/components/schemas/ServiceKeyEnum"}
 
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: gsf_auth
+
   responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema: {$ref: "#/components/schemas/Error"}
     BadRequest:
       description: Bad request
       content:
@@ -453,7 +527,6 @@ components:
         service: {type: string, description: "Service the user is interested in"}
         preferredAt: {type: string, description: "Preferred date/time, free text or ISO"}
         message: {type: string}
-        source: {type: string, description: "Where the form was opened from (hero, header, cta-banner, service-page, blog)"}
 
     Booking:
       allOf:

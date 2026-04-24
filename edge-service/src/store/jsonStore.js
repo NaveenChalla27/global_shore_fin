@@ -1,4 +1,3 @@
-// Low-level JSON file store. The only module that touches the filesystem.
 import {readFile, writeFile, mkdir} from "node:fs/promises";
 import {existsSync} from "node:fs";
 import {dirname} from "node:path";

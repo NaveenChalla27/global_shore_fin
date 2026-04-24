@@ -136,38 +136,6 @@ export const COUNTRIES: Country[] = [
         ],
     },
     {
-        code: "AE",
-        name: "United Arab Emirates",
-        short: "UAE",
-        flag: "🇦🇪",
-        status: "coming-soon",
-        eyebrow: "UAE Financial Services",
-        heroTitle: "Your UAE Financial Partner — VAT, Corporate Tax, Accounting & Compliance.",
-        heroSub: "Expert services for UAE businesses, free-zone entities, and expats. Coming soon.",
-        trustBadges: ["FTA Registered", "Corporate Tax Ready", "VAT Compliant", "All Emirates Coverage"],
-        services: [
-            {key: "payroll", title: "Payroll & WPS", desc: "WPS-compliant payroll and gratuity calculations."},
-            {
-                key: "tax",
-                title: "VAT & Corporate Tax",
-                desc: "VAT returns, corporate tax registration and filing.",
-            },
-            {key: "accounting", title: "Accounting", desc: "IFRS bookkeeping, Tally, Zoho, and Xero."},
-            {key: "compliance", title: "Compliance", desc: "ESR, UBO, AML, and FTA compliance."},
-            {
-                key: "formation",
-                title: "Company Formation",
-                desc: "Mainland, free-zone, and offshore company setup.",
-            },
-        ],
-        stats: [
-            {num: "Soon", label: "Launching 2026"},
-            {num: "7", label: "Emirates Covered"},
-            {num: "FTA", label: "Registered"},
-            {num: "IFRS", label: "Compliant"},
-        ],
-    },
-    {
         code: "CA",
         name: "Canada",
         short: "CA",

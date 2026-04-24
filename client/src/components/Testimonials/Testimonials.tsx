@@ -1,29 +1,36 @@
+import {useEffect, useState} from "react";
 import {IconQuote} from "../Icons";
 import shared from "../../styles/shared.module.css";
 import styles from "./Testimonials.module.css";
 
-const items = [
-    {
-        text: "Global Shore handled my H1B tax return and FBAR filings flawlessly. Clear pricing, fast turnaround, and they actually explained things in plain English.",
-        name: "Priya R.",
-        meta: "New Jersey · Individual Taxation",
-        initials: "PR",
-    },
-    {
-        text: "We switched our payroll from a national provider to Global Shore last year. Better service, better price, and zero compliance issues since.",
-        name: "Marcus T.",
-        meta: "Texas · Payroll Services",
-        initials: "MT",
-    },
-    {
-        text: "Incorporated my LLC from Bangalore in under two weeks. EIN, banking guidance, S-Corp election — all handled by one team.",
-        name: "Anand K.",
-        meta: "NRI · LLC Formation",
-        initials: "AK",
-    },
-];
+const API_BASE: string = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "/api";
+
+type Testimonial = {
+    id: string;
+    text: string;
+    name: string;
+    meta: string;
+    initials: string;
+    rating: number;
+};
 
 export default function Testimonials() {
+    const [items, setItems] = useState<Testimonial[]>([]);
+
+    useEffect(() => {
+        const controller = new AbortController();
+        fetch(`${API_BASE}/testimonials`, {signal: controller.signal, headers: {Accept: "application/json"}})
+        .then((res) => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json() as Promise<{testimonials: Testimonial[]}>;
+        })
+        .then((data) => setItems(data.testimonials))
+        .catch((err) => {
+            if (err.name !== "AbortError") console.error("[Testimonials] fetch failed:", err);
+        });
+        return () => controller.abort();
+    }, []);
+
     return (
         <section className={shared.section}>
             <div className={shared.container}>
@@ -33,11 +40,11 @@ export default function Testimonials() {
                 </div>
                 <div className={styles.grid}>
                     {items.map((t) => (
-                        <div className={styles.card} key={t.name}>
+                        <div className={styles.card} key={t.id}>
                             <div className={styles.quote}>
                                 <IconQuote size={32} />
                             </div>
-                            <div className={styles.stars}>★★★★★</div>
+                            <div className={styles.stars}>{"★".repeat(t.rating)}</div>
                             <p className={styles.text}>{t.text}</p>
                             <div className={styles.author}>
                                 <div className={styles.avatar}>{t.initials}</div>

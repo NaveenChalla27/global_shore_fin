@@ -24,7 +24,7 @@ export default function Hero() {
                         <button
                             type="button"
                             className={shared.btnPrimary}
-                            onClick={() => open({source: "hero", title: comingSoon ? "Join the Waitlist" : undefined})}
+                            onClick={() => open({title: comingSoon ? "Join the Waitlist" : undefined})}
                         >
                             {comingSoon ? "Join Waitlist" : "Book a Free Consultation"} <IconArrow size={16} />
                         </button>

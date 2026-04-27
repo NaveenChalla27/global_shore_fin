@@ -105,7 +105,7 @@ export default function ServiceDetailPage() {
                             <button
                                 type="button"
                                 className={shared.btnPrimary}
-                                onClick={() => open({service: service.name, source: "service-page-aside"})}
+                                onClick={() => open({service: service.name})}
                             >
                                 Book a Free Call
                             </button>

@@ -1,3 +1,4 @@
+// /api/index.js
 import { createApp } from "../src/app.js";
 
 let app;

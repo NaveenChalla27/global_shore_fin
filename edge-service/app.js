@@ -1,10 +1,15 @@
-// Bootstrap. Just starts the app the factory builds.
+// Bootstrap. Exports the app for Vercel serverless; also starts a local server.
 import {createApp} from "./src/app.js";
-import {DATA_DIR, PORT} from "./src/config/paths.js";
+import {PORT} from "./src/config/paths.js";
 
 const app = createApp();
 
-app.listen(PORT, () => {
-    console.log(`[edge-service] listening on http://localhost:${PORT}`);
-    console.log(`[edge-service] docs:       http://localhost:${PORT}/docs`);
-});
+// Vercel sets VERCEL=1 automatically — skip listen() in that environment.
+if (process.env.VERCEL !== "1") {
+    app.listen(PORT, () => {
+        console.log(`[edge-service] listening on http://localhost:${PORT}`);
+        console.log(`[edge-service] docs:       http://localhost:${PORT}/docs`);
+    });
+}
+
+export default app;

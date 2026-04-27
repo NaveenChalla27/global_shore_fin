@@ -2,7 +2,10 @@
 import jwt from "jsonwebtoken";
 import {HttpError} from "../utils/HttpError.js";
 
-const JWT_SECRET  = process.env.JWT_SECRET  ?? "change-me-before-production";
+const JWT_SECRET  = process.env.JWT_SECRET;
+if (!JWT_SECRET && process.env.NODE_ENV === "production") {
+    throw new Error("Missing required environment variable: JWT_SECRET");
+}
 const COOKIE_NAME = "gsf_auth";
 
 export function requireAuth(req, _res, next) {

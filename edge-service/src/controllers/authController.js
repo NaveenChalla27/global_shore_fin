@@ -1,22 +1,30 @@
-// POST /api/auth/login  — validate credentials, set httpOnly cookie with signed JWT.
-// GET  /api/auth/me     — verify cookie, return username (used to restore session on page load).
-// POST /api/auth/logout — clear the auth cookie.
+// POST /api/auth/login  ï¿½ validate credentials, set httpOnly cookie with signed JWT.
+// GET  /api/auth/me     ï¿½ verify cookie, return username (used to restore session on page load).
+// POST /api/auth/logout ï¿½ clear the auth cookie.
 import {timingSafeEqual} from "node:crypto";
 import jwt from "jsonwebtoken";
 import {asyncHandler} from "../utils/asyncHandler.js";
 import {HttpError} from "../utils/HttpError.js";
 
-const ADMIN_USER  = process.env.ADMIN_USER  ?? "admin";
-const ADMIN_PASS  = process.env.ADMIN_PASS  ?? "globalshore@2026";
-const JWT_SECRET  = process.env.JWT_SECRET  ?? "change-me-before-production";
+const isProd = process.env.NODE_ENV === "production";
+
+function requireEnv(name) {
+    const val = process.env[name];
+    if (!val && isProd) throw new Error(`Missing required environment variable: ${name}`);
+    return val;
+}
+
+const ADMIN_USER  = requireEnv("ADMIN_USER")  ?? "admin";
+const ADMIN_PASS  = requireEnv("ADMIN_PASS");
+const JWT_SECRET  = requireEnv("JWT_SECRET");
 const JWT_EXPIRES = process.env.JWT_EXPIRES ?? "8h";
 const COOKIE_NAME = "gsf_auth";
 const COOKIE_MAX_AGE = 8 * 60 * 60 * 1000; // 8 h in ms
 
-const isProd = process.env.NODE_ENV === "production";
+
 
 const cookieOpts = {
-    httpOnly: true,       // JS cannot read the token — XSS safe
+    httpOnly: true,       // JS cannot read the token ï¿½ XSS safe
     secure:   isProd,     // HTTPS only in production
     sameSite: "strict",   // CSRF protection
     path:     "/api",     // only sent on /api requests

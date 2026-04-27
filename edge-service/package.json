@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Dynamic content API for Global Shore Fin Services UI (countries, services, contacts).",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",

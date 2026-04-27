@@ -5,6 +5,9 @@
   "type": "module",
   "description": "Dynamic content API for Global Shore Fin Services UI (countries, services, contacts).",
   "main": "app.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "node --watch app.js",

@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "description": "Dynamic content API for Global Shore Fin Services UI (countries, services, contacts).",
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
-    "prod": "NODE_ENV=production node server.js",
-    "vercel-start": "node server.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "prod": "NODE_ENV=production node index.js",
+    "vercel-start": "node index.js"
   },
   "dependencies": {
     "compression": "^1.7.5",

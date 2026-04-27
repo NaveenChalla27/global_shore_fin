@@ -1,15 +1,15 @@
 {
-    "version": 2,
-    "functions": {
-        "api/index.js": {
-            "includeFiles": "data/**,openapi.yaml"
-        }
-    },
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/api/index"
-        }
-    ]
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs",
+      "includeFiles": "data/**,openapi.yaml"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
+    }
+  ]
 }
-

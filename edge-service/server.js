@@ -5,7 +5,7 @@ import {PORT} from "./src/config/paths.js";
 const app = createApp();
 
 // Vercel sets VERCEL=1 automatically — skip listen() in that environment.
-if (process.env.VERCEL !== "1") {
+if (process.env.NODE_ENV !== "production") {
     app.listen(PORT, () => {
         console.log(`[edge-service] listening on http://localhost:${PORT}`);
         console.log(`[edge-service] docs:       http://localhost:${PORT}/docs`);

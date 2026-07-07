@@ -1,6 +1,8 @@
 # SPA fallback for Hostinger Apache shared hosting.
 # Serves index.html for any client-side route so React Router works on refresh / direct links.
 
+Options -MultiViews
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
@@ -11,7 +13,7 @@
     RewriteRule ^ - [L]
 
     # Everything else -> index.html
-    RewriteRule ^ index.html [L]
+    RewriteRule ^ /index.html [QSA,L]
 </IfModule>
 
 # --- Caching ---

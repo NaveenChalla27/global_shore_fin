@@ -50,9 +50,13 @@ const FALLBACK_CONTACTS: Contacts = {
     socials: {linkedin: "#", twitter: "#", instagram: "#"},
 };
 
-export async function fetchContacts(signal?: AbortSignal): Promise<Contacts> {
+export async function fetchContacts(signal?: AbortSignal, countryCode?: string): Promise<Contacts> {
+    // Use country-specific endpoint when countryCode is provided
+    const url = countryCode
+        ? `${API_BASE}/countries/${countryCode}/contacts`
+        : `${API_BASE}/contacts`;
     try {
-        const data = await tryFetchJson(`${API_BASE}/contacts`, signal);
+        const data = await tryFetchJson(url, signal);
         return data as Contacts;
     } catch (err) {
         if ((err as Error).name === "AbortError") throw err;
@@ -149,9 +153,37 @@ export async function createBooking(input: BookingInput, signal?: AbortSignal): 
     return (await res.json()) as Booking;
 }
 
-export async function fetchPosts(signal?: AbortSignal): Promise<Post[]> {
-    const data = await tryFetchJson(`${API_BASE}/posts`, signal);
+export async function fetchPosts(signal?: AbortSignal, countryCode?: string): Promise<Post[]> {
+    const url = countryCode
+        ? `${API_BASE}/countries/${countryCode}/posts`
+        : `${API_BASE}/posts`;
+    const data = await tryFetchJson(url, signal);
     const list = Array.isArray(data) ? data : (data as PostsResponse).posts;
     return Array.isArray(list) ? (list as Post[]) : [];
+}
+
+export type Testimonial = {
+    id: string;
+    text: string;
+    name: string;
+    meta: string;
+    initials: string;
+    rating: number;
+    country?: string;
+};
+
+export async function fetchTestimonials(signal?: AbortSignal, countryCode?: string): Promise<Testimonial[]> {
+    const url = countryCode
+        ? `${API_BASE}/countries/${countryCode}/testimonials`
+        : `${API_BASE}/testimonials`;
+    try {
+        const data = await tryFetchJson(url, signal);
+        const list = (data as {testimonials: Testimonial[]}).testimonials;
+        return Array.isArray(list) ? list : [];
+    } catch (err) {
+        if ((err as Error).name === "AbortError") throw err;
+        console.warn("[api] fetchTestimonials failed:", err);
+        return [];
+    }
 }
 

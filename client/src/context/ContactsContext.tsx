@@ -1,5 +1,6 @@
 import {createContext, useCallback, useContext, useEffect, useState, type ReactNode} from "react";
 import {fetchContacts, type Contacts} from "../api/countries";
+import {useCountry} from "./CountryContext";
 
 const FALLBACK: Contacts = {
     phone: "+1 (203) 435-3563",
@@ -22,6 +23,7 @@ type ContactsContextValue = {
 const ContactsContext = createContext<ContactsContextValue | null>(null);
 
 export function ContactsProvider({children}: {children: ReactNode}) {
+    const {country} = useCountry();
     const [contacts, setContacts] = useState<Contacts>(FALLBACK);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -31,14 +33,14 @@ export function ContactsProvider({children}: {children: ReactNode}) {
         const ctrl = new AbortController();
         setLoading(true);
         setError(null);
-        fetchContacts(ctrl.signal)
+        fetchContacts(ctrl.signal, country.code)
         .then((data) => setContacts({...FALLBACK, ...data}))
         .catch((err) => {
             if ((err as Error).name !== "AbortError") setError((err as Error).message);
         })
         .finally(() => setLoading(false));
         return () => ctrl.abort();
-    }, [reloadKey]);
+    }, [reloadKey, country.code]); // re-fetch whenever selected country changes
 
     const refresh = useCallback(() => setReloadKey((k) => k + 1), []);
 

@@ -8,12 +8,12 @@ import {BookingProvider} from "./context/BookingContext";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <ContactsProvider>
-            <CountryProvider>
+        <CountryProvider>
+            <ContactsProvider>
                 <BookingProvider>
                     <App />
                 </BookingProvider>
-            </CountryProvider>
-        </ContactsProvider>
+            </ContactsProvider>
+        </CountryProvider>
     </StrictMode>
 );

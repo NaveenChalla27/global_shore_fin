@@ -7,7 +7,7 @@ export default defineConfig({
     server: {
         proxy: {
             "/api": {
-                target: "https://global-shore-fin-edge.vercel.app",
+                target: process.env.VITE_API_BASE_URL?.replace("/api", "") ?? "http://localhost:4000",
                 changeOrigin: true,
             },
         },

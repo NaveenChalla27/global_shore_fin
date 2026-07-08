@@ -1,19 +1,19 @@
-# SPA fallback for Hostinger Apache shared hosting.
+# SPA fallback for Hostinger Apache/LiteSpeed shared hosting.
 # Serves index.html for any client-side route so React Router works on refresh / direct links.
-
-Options -MultiViews
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # Don't rewrite real files / directories
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^ - [L]
+    # If the request is already for index.html, serve it directly (prevents rewrite loops)
+    RewriteRule ^index\.html$ - [L]
 
-    # Everything else -> index.html
-    RewriteRule ^ /index.html [QSA,L]
+    # If it's a real file or real directory, serve it as-is
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Everything else -> index.html (relative path avoids absolute-path loop on LiteSpeed)
+    RewriteRule . /index.html [L]
 </IfModule>
 
 # --- Caching ---

@@ -1,6 +1,22 @@
 import {createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode} from "react";
 import {fetchCountries} from "../api/countries";
-import {COUNTRIES, DEFAULT_COUNTRY_CODE, type Country, type Service, type ServiceKey} from "../data/countries";
+import {type Country, type Service, type ServiceKey} from "../data/countries";
+
+const DEFAULT_COUNTRY_CODE = "US";
+
+// Structural placeholder used while the real data loads — keeps consuming components
+// from crashing before the first API response arrives.
+const PLACEHOLDER_COUNTRY: Country = {
+    code: DEFAULT_COUNTRY_CODE,
+    name: "",
+    status: "active",
+    eyebrow: "",
+    heroTitle: "",
+    heroSub: "",
+    trustBadges: [],
+    services: [],
+    stats: [],
+};
 
 type CountryContextValue = {
     countries: Country[];
@@ -18,7 +34,7 @@ type CountryContextValue = {
 const CountryContext = createContext<CountryContextValue | null>(null);
 
 export function CountryProvider({children}: {children: ReactNode}) {
-    const [countries, setCountries] = useState<Country[]>(COUNTRIES);
+    const [countries, setCountries] = useState<Country[]>([]);
     const [code, setCode] = useState(DEFAULT_COUNTRY_CODE);
     const [selectedServices, setSelectedServices] = useState<ServiceKey[]>([]);
     const [loading, setLoading] = useState(true);
@@ -38,7 +54,10 @@ export function CountryProvider({children}: {children: ReactNode}) {
         return () => ctrl.abort();
     }, [reloadKey]);
 
-    const country = useMemo(() => countries.find((c) => c.code === code) ?? countries[0], [countries, code]);
+    const country = useMemo(
+        () => countries.find((c) => c.code === code) ?? countries[0] ?? PLACEHOLDER_COUNTRY,
+        [countries, code]
+    );
 
     const refresh = useCallback(() => setReloadKey((k) => k + 1), []);
 

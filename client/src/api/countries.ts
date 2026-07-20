@@ -1,4 +1,4 @@
-import { COUNTRIES, type Country } from "../data/countries";
+import type { Country } from "../data/countries";
 
 /**
  * Base URL for the content API (edge-service).
@@ -10,22 +10,19 @@ const API_BASE: string = (import.meta.env.VITE_API_BASE_URL as string | undefine
 export type CountriesResponse = {countries: Country[]};
 
 async function tryFetchJson(url: string, signal?: AbortSignal): Promise<unknown> {
-    const res = await fetch(url, {signal, headers: {Accept: "application/json"}});
+    const res = await fetch(url, {
+        signal,
+        cache: "no-store",
+        headers: {Accept: "application/json"},
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
     return res.json();
 }
 
 export async function fetchCountries(signal?: AbortSignal): Promise<Country[]> {
-    try {
-        const data = await tryFetchJson(`${API_BASE}/countries`, signal);
-        const list = Array.isArray(data) ? data : (data as CountriesResponse).countries;
-        if (!Array.isArray(list) || list.length === 0) throw new Error("Empty country list");
-        return list as Country[];
-    } catch (err) {
-        if ((err as Error).name === "AbortError") throw err;
-        console.warn("[api] fetchCountries failed, using bundled fallback:", err);
-        return COUNTRIES;
-    }
+    const data = await tryFetchJson(`${API_BASE}/countries`, signal);
+    const list = Array.isArray(data) ? data : (data as CountriesResponse).countries;
+    return Array.isArray(list) ? (list as Country[]) : [];
 }
 
 export type Contacts = {
@@ -39,30 +36,12 @@ export type Contacts = {
     socials?: {linkedin?: string; twitter?: string; instagram?: string};
 };
 
-const FALLBACK_CONTACTS: Contacts = {
-    phone: "+91 1000000000",
-    phoneHref: "tel:+911000000000",
-    email: "support@globalshore.com",
-    emailHref: "mailto:support@globalshore.com",
-    hours: "Mon\u2013Fri  9am \u2013 6pm ET",
-    whatsapp: "10000000000",
-    address: "Hyderabad, India",
-    socials: {linkedin: "#", twitter: "#", instagram: "#"},
-};
-
 export async function fetchContacts(signal?: AbortSignal, countryCode?: string): Promise<Contacts> {
-    // Use country-specific endpoint when countryCode is provided
     const url = countryCode
         ? `${API_BASE}/countries/${countryCode}/contacts`
         : `${API_BASE}/contacts`;
-    try {
-        const data = await tryFetchJson(url, signal);
-        return data as Contacts;
-    } catch (err) {
-        if ((err as Error).name === "AbortError") throw err;
-        console.warn("[api] fetchContacts failed, using fallback:", err);
-        return FALLBACK_CONTACTS;
-    }
+    const data = await tryFetchJson(url, signal);
+    return data as Contacts;
 }
 
 export type Post = {
@@ -187,3 +166,32 @@ export async function fetchTestimonials(signal?: AbortSignal, countryCode?: stri
     }
 }
 
+export type Faq = {q: string; a: string};
+
+export type ServiceDetail = {
+    slug: string;
+    name: string;
+    category: string;
+    categorySlug: string;
+    benefit: string;
+    description: string;
+    whoFor: string[];
+    includes: string[];
+    whyChoose: string[];
+    faqs: Faq[];
+};
+
+export type ServiceCategory = {
+    slug: string;
+    name: string;
+    blurb?: string;
+    services: ServiceDetail[];
+};
+
+export type ServiceCategoriesResponse = {categories: ServiceCategory[]};
+
+export async function fetchServiceCategories(signal?: AbortSignal): Promise<ServiceCategory[]> {
+    const data = await tryFetchJson(`${API_BASE}/service-categories`, signal);
+    const list = (data as ServiceCategoriesResponse).categories;
+    return Array.isArray(list) ? list : [];
+}

@@ -3,11 +3,12 @@ import styles from "./Footer.module.css";
 import {Link} from "react-router-dom";
 import {useContacts} from "../../context/ContactsContext";
 import {useCountry} from "../../context/CountryContext";
-import {SERVICE_CATEGORIES} from "../../data/serviceDetails";
+import {useServices} from "../../context/ServicesContext";
 
 export default function Footer() {
     const {contacts} = useContacts();
     const {country} = useCountry();
+    const {categories} = useServices();
     const socials = contacts.socials ?? {};
     return (
         <footer id="contact" className={styles.footer}>
@@ -26,9 +27,9 @@ export default function Footer() {
                     <div>
                         <h5>Services</h5>
                         <ul>
-                            {SERVICE_CATEGORIES.map((cat) => (
+                            {categories.map((cat) => (
                                 <li key={cat.slug}>
-                                    <Link to={`/services/${cat.services[0].slug}`}>{cat.name}</Link>
+                                    <Link to={`/services/${cat.services[0]?.slug ?? cat.slug}`}>{cat.name}</Link>
                                 </li>
                             ))}
                             <li>

@@ -2,17 +2,6 @@ import {createContext, useCallback, useContext, useEffect, useState, type ReactN
 import {fetchContacts, type Contacts} from "../api/countries";
 import {useCountry} from "./CountryContext";
 
-const FALLBACK: Contacts = {
-    phone: "+1 (203) 435-3563",
-    phoneHref: "tel:+12034353563",
-    email: "support@taxmonkglobal.com",
-    emailHref: "mailto:support@taxmonkglobal.com",
-    hours: "Mon-Fri: 9AM - 7PM (MST)",
-    whatsapp: "10000000000",
-    address: "Tennessee, United States",
-    socials: {linkedin: "#", twitter: "#", instagram: "#"},
-};
-
 type ContactsContextValue = {
     contacts: Contacts;
     loading: boolean;
@@ -24,23 +13,24 @@ const ContactsContext = createContext<ContactsContextValue | null>(null);
 
 export function ContactsProvider({children}: {children: ReactNode}) {
     const {country} = useCountry();
-    const [contacts, setContacts] = useState<Contacts>(FALLBACK);
+    const [contacts, setContacts] = useState<Contacts>({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [reloadKey, setReloadKey] = useState(0);
 
     useEffect(() => {
+        if (!country.code) return;
         const ctrl = new AbortController();
         setLoading(true);
         setError(null);
         fetchContacts(ctrl.signal, country.code)
-        .then((data) => setContacts({...FALLBACK, ...data}))
+        .then((data) => setContacts(data))
         .catch((err) => {
             if ((err as Error).name !== "AbortError") setError((err as Error).message);
         })
         .finally(() => setLoading(false));
         return () => ctrl.abort();
-    }, [reloadKey, country.code]); // re-fetch whenever selected country changes
+    }, [reloadKey, country.code]);
 
     const refresh = useCallback(() => setReloadKey((k) => k + 1), []);
 

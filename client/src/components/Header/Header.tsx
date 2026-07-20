@@ -7,11 +7,12 @@ import styles from "./Header.module.css";
 import CountrySelector from "../CountrySelector/CountrySelector";
 import {useContacts} from "../../context/ContactsContext";
 import {useBooking} from "../../context/BookingContext";
-import {SERVICE_CATEGORIES} from "../../data/serviceDetails";
+import {useServices} from "../../context/ServicesContext";
 
 export default function Header() {
     const {contacts} = useContacts();
     const {open: openBooking} = useBooking();
+    const {categories} = useServices();
     const [megaOpen, setMegaOpen] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -83,11 +84,11 @@ export default function Header() {
                         <Link to="/services">Services ▾</Link>
                         {megaOpen && (
                             <div className={styles.megaMenu} onMouseEnter={openMega} onMouseLeave={scheduleClose}>
-                                {SERVICE_CATEGORIES.map((cat: typeof SERVICE_CATEGORIES[number]) => (
+                                {categories.map((cat) => (
                                     <div key={cat.slug} className={styles.megaCol}>
                                         <h6>{cat.name}</h6>
                                         <ul>
-                                            {cat.services.map((s: typeof cat.services[number]) => (
+                                            {cat.services.map((s) => (
                                                 <li key={s.slug}>
                                                     <Link to={`/services/${s.slug}`} onClick={() => setMegaOpen(false)}>
                                                         {s.name}
@@ -154,11 +155,11 @@ export default function Header() {
                                         >
                                             All Services
                                         </Link>
-                                        {SERVICE_CATEGORIES.map((cat: typeof SERVICE_CATEGORIES[number]) => (
+                                        {categories.map((cat) => (
                                             <div key={cat.slug} className={styles.mobileCat}>
                                                 <h6>{cat.name}</h6>
                                                 <ul>
-                                                    {cat.services.map((s: typeof cat.services[number]) => (
+                                                    {cat.services.map((s) => (
                                                         <li key={s.slug}>
                                                             <Link
                                                                 to={`/services/${s.slug}`}

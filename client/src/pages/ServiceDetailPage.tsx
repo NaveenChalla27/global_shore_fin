@@ -2,18 +2,32 @@ import {Link, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import shared from "../styles/shared.module.css";
 import styles from "./ServicePage.module.css";
-import {getCategoryBySlug, getServiceBySlug} from "../data/serviceDetails";
 import {useBooking} from "../context/BookingContext";
+import {useServices} from "../context/ServicesContext";
 
 export default function ServiceDetailPage() {
     const {slug = ""} = useParams();
-    const service = getServiceBySlug(slug);
     const {open} = useBooking();
+    const {categories, loading} = useServices();
+    const allServices = categories.flatMap((c) => c.services);
+    const service = allServices.find((s) => s.slug === slug);
+    const category = service ? categories.find((c) => c.slug === service.categorySlug) : undefined;
+    const related = (category?.services ?? []).filter((s) => s.slug !== slug).slice(0, 5);
 
     useEffect(() => {
         window.scrollTo({top: 0, behavior: "instant" as ScrollBehavior});
         if (service) document.title = `${service.name} — Global Shore Fin Services`;
     }, [service]);
+
+    if (loading) {
+        return (
+            <section className={styles.body}>
+                <div className={shared.container}>
+                    <p>Loading…</p>
+                </div>
+            </section>
+        );
+    }
 
     if (!service) {
         return (
@@ -27,9 +41,6 @@ export default function ServiceDetailPage() {
             </section>
         );
     }
-
-    const category = getCategoryBySlug(service.categorySlug);
-    const related = (category?.services ?? []).filter((s) => s.slug !== service.slug).slice(0, 5);
 
     return (
         <>

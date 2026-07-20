@@ -87,6 +87,15 @@
     font-weight: 600;
 }
 
+.itemDisabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.itemDisabled:hover {
+    background: transparent;
+}
+
 .itemName {
     flex: 1;
 }

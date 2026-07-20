@@ -17,7 +17,9 @@
     width: 100%;
     max-width: 720px;
     max-height: calc(100vh - 40px);
-    overflow-y: auto;
+    max-height: calc(100dvh - 40px);
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 30px 80px rgba(14, 58, 69, 0.35);
     animation: pop 0.2s ease-out;
 }
@@ -26,6 +28,7 @@
     padding: 24px 28px 12px;
     border-bottom: 1px solid #eef0f4;
     position: relative;
+    flex-shrink: 0;
 }
 
 .head h3 {
@@ -63,6 +66,8 @@
     padding: 20px 28px 28px;
     display: grid;
     gap: 14px;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .form *,
@@ -79,8 +84,70 @@
 }
 
 @media (max-width: 540px) {
+    .backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal {
+        max-width: 100%;
+        max-height: 96dvh;
+        max-height: 96vh;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .head {
+        padding: 16px 16px 10px;
+    }
+
+    .head h3 {
+        font-size: 17px;
+        padding-right: 32px;
+    }
+
+    .head p {
+        font-size: 13px;
+    }
+
+    .close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .form {
+        padding: 12px 16px 20px;
+        gap: 10px;
+    }
+
     .row {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .field label {
+        font-size: 12px;
+    }
+
+    /* font-size ≥ 16px prevents iOS from zooming in on focus */
+    .field input,
+    .field select,
+    .field textarea {
+        font-size: 16px;
+        padding: 9px 10px;
+    }
+
+    .field textarea {
+        min-height: 60px;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .actions button {
+        width: 100%;
+        justify-content: center;
     }
 }
 

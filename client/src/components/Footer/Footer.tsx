@@ -3,14 +3,15 @@ import styles from "./Footer.module.css";
 import {Link} from "react-router-dom";
 import {useContacts} from "../../context/ContactsContext";
 import {useCountry} from "../../context/CountryContext";
-import {SERVICE_CATEGORIES} from "../../data/serviceDetails";
+import {useServices} from "../../context/ServicesContext";
 
 export default function Footer() {
     const {contacts} = useContacts();
     const {country} = useCountry();
+    const {categories} = useServices();
     const socials = contacts.socials ?? {};
     return (
-        <footer className={styles.footer}>
+        <footer id="contact" className={styles.footer}>
             <div className={shared.container}>
                 <div className={styles.grid}>
                     <div>
@@ -26,9 +27,9 @@ export default function Footer() {
                     <div>
                         <h5>Services</h5>
                         <ul>
-                            {SERVICE_CATEGORIES.map((cat) => (
+                            {categories.map((cat) => (
                                 <li key={cat.slug}>
-                                    <Link to={`/services/${cat.services[0].slug}`}>{cat.name}</Link>
+                                    <Link to={`/services/${cat.services[0]?.slug ?? cat.slug}`}>{cat.name}</Link>
                                 </li>
                             ))}
                             <li>
@@ -89,10 +90,10 @@ export default function Footer() {
                                     </a>
                                 </li>
                             )}
-                            {socials.youtube && (
+                            {socials.instagram && (
                                 <li>
-                                    <a href={socials.youtube} target="_blank" rel="noopener noreferrer">
-                                        YouTube
+                                    <a href={socials.instagram} target="_blank" rel="noopener noreferrer">
+                                        Instagram
                                     </a>
                                 </li>
                             )}

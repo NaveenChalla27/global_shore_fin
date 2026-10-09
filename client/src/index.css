@@ -1,13 +1,16 @@
 :root {
-    --navy: #0d3b6e;
-    --navy-dark: #0a2f58;
-    --teal: #0f6e56;
-    --teal-dark: #0b5544;
-    --bg-light: #f2f4f7;
+    --navy: #1a7a96;
+    --navy-dark: #0e3a45;
+    --teal: #2491af;
+    --teal-dark: #1d7d96;
+    --teal-medium: #a8d5e3;
+    --teal-light: #d0eaf2;
+    --teal-secondary: #6bbfd8;
+    --bg-light: #f0f7fa;
     --white: #ffffff;
-    --text: #101828;
+    --text: #0e3a45;
     --muted: #667085;
-    --border: #e4e7ec;
+    --border: #6bbfd8;
     --accent: #f79009;
     --whatsapp: #25d366;
     --s-1: 8px;
@@ -31,7 +34,14 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html, body, #root { margin: 0; padding: 0; width: 100%; }
-html, body { min-height: 100%; }
+html, body {
+    min-height: 100%;
+    background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(26, 122, 150, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 0% 100%, rgba(36, 145, 175, 0.18), transparent 60%),
+        linear-gradient(180deg, #f0f7fa 0%, #ffffff 100%);
+    background-attachment: fixed;
+}
 #root { display: block; min-height: 100vh; }
 a { color: var(--teal); text-decoration: none; }
 a:hover { text-decoration: underline; }

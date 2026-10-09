@@ -27,12 +27,16 @@
 
 .eyebrow {
     display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: var(--s-1);
+    color: var(--navy);
+    background: linear-gradient(90deg, rgba(168, 213, 227, 0.35), rgba(36, 145, 175, 0.25));
+    border-left: 3px solid var(--teal);
+    padding: 5px 14px 5px 10px;
+    border-radius: 0 999px 999px 0;
+    margin-bottom: var(--s-2);
 }
 
 .center {

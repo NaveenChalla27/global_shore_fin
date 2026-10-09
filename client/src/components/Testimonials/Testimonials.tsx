@@ -4,6 +4,7 @@ import {fetchReviews, type Review} from "../../api/countries";
 import ReviewForm from "./ReviewForm";
 import shared from "../../styles/shared.module.css";
 import styles from "./Testimonials.module.css";
+import {useCountry} from "../../context/CountryContext";
 
 type Item = {key: string; text: string; name: string; meta: string; initials: string; rating: number};
 
@@ -25,6 +26,7 @@ const fromReview = (r: Review): Item => ({
 });
 
 export default function Testimonials() {
+    const {country} = useCountry();
     const [reviews, setReviews] = useState<Review[]>([]);
 
     useEffect(() => {
@@ -44,7 +46,7 @@ export default function Testimonials() {
             <div className={shared.container}>
                 <div className={shared.sectionHead}>
                     <span className={shared.eyebrow}>What Clients Say</span>
-                    <h2>Trusted by Businesses &amp; Individuals Across the US</h2>
+                    <h2>Trusted by Businesses &amp; Individuals Across {country.name}</h2>
                 </div>
                 <div className={styles.layout}>
                 <div>

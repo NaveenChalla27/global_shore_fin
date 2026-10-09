@@ -7,11 +7,12 @@ import styles from "./Header.module.css";
 import CountrySelector from "../CountrySelector/CountrySelector";
 import {useContacts} from "../../context/ContactsContext";
 import {useBooking} from "../../context/BookingContext";
-import {SERVICE_CATEGORIES} from "../../data/serviceDetails";
+import {useServices} from "../../context/ServicesContext";
 
 export default function Header() {
     const {contacts} = useContacts();
     const {open: openBooking} = useBooking();
+    const {categories} = useServices();
     const [megaOpen, setMegaOpen] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -39,10 +40,12 @@ export default function Header() {
         }
         setMegaOpen(true);
     };
+
     const scheduleClose = () => {
         if (closeTimer.current) window.clearTimeout(closeTimer.current);
         closeTimer.current = window.setTimeout(() => setMegaOpen(false), 180);
     };
+
     return (
         <header className={styles.header}>
             <div className={styles.topBar}>
@@ -81,11 +84,11 @@ export default function Header() {
                         <Link to="/services">Services ▾</Link>
                         {megaOpen && (
                             <div className={styles.megaMenu} onMouseEnter={openMega} onMouseLeave={scheduleClose}>
-                                {SERVICE_CATEGORIES.map((cat: typeof SERVICE_CATEGORIES[number]) => (
+                                {categories.map((cat) => (
                                     <div key={cat.slug} className={styles.megaCol}>
                                         <h6>{cat.name}</h6>
                                         <ul>
-                                            {cat.services.map((s: typeof cat.services[number]) => (
+                                            {cat.services.map((s) => (
                                                 <li key={s.slug}>
                                                     <Link to={`/services/${s.slug}`} onClick={() => setMegaOpen(false)}>
                                                         {s.name}
@@ -100,14 +103,10 @@ export default function Header() {
                     </span>
                     <Link to="/#industries">Industries</Link>
                     <Link to="/blog">Resources</Link>
-                    <Link to="/#careers">Careers</Link>
-                    <button
-                        type="button"
-                        className={styles.navLinkBtn}
-                        onClick={() => openBooking({source: "header-nav"})}
-                    >
+                    <Link to="/careers">Careers</Link>
+                    <Link to="/#contact" className={styles.navLinkBtn}>
                         Contact
-                    </button>
+                    </Link>
                 </nav>
                 <div className={styles.cta}>
                     <button
@@ -119,11 +118,7 @@ export default function Header() {
                     >
                         <IconMenu />
                     </button>
-                    <button
-                        type="button"
-                        className={shared.btnPrimary}
-                        onClick={() => openBooking({source: "header-cta"})}
-                    >
+                    <button type="button" className={shared.btnPrimary} onClick={() => openBooking({})}>
                         Book Consultation
                     </button>
                 </div>
@@ -160,11 +155,11 @@ export default function Header() {
                                         >
                                             All Services
                                         </Link>
-                                        {SERVICE_CATEGORIES.map((cat: typeof SERVICE_CATEGORIES[number]) => (
+                                        {categories.map((cat) => (
                                             <div key={cat.slug} className={styles.mobileCat}>
                                                 <h6>{cat.name}</h6>
                                                 <ul>
-                                                    {cat.services.map((s: typeof cat.services[number]) => (
+                                                    {cat.services.map((s) => (
                                                         <li key={s.slug}>
                                                             <Link
                                                                 to={`/services/${s.slug}`}
@@ -185,19 +180,12 @@ export default function Header() {
                                 <Link to="/blog" onClick={() => setMobileOpen(false)}>
                                     Resources
                                 </Link>
-                                <Link to="/#careers" onClick={() => setMobileOpen(false)}>
+                                <Link to="/careers" onClick={() => setMobileOpen(false)}>
                                     Careers
                                 </Link>
-                                <button
-                                    type="button"
-                                    className={styles.mobileToggle}
-                                    onClick={() => {
-                                        setMobileOpen(false);
-                                        openBooking({source: "header-mobile"});
-                                    }}
-                                >
-                                    <span>Contact</span>
-                                </button>
+                                <Link to="/#contact" onClick={() => setMobileOpen(false)}>
+                                    Contact
+                                </Link>
                             </nav>
                         </div>
                     </>,

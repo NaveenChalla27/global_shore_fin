@@ -1,4 +1,3 @@
-// Business logic for blog posts.
 import {readJson, writeJson} from "../store/jsonStore.js";
 import {POSTS_FILE} from "../config/paths.js";
 import {HttpError} from "../utils/HttpError.js";

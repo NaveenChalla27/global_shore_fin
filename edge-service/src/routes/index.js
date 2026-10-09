@@ -6,8 +6,10 @@ import * as posts from "../controllers/postController.js";
 import * as bookings from "../controllers/bookingController.js";
 import * as customers from "../controllers/customerController.js";
 import * as reviews from "../controllers/reviewController.js";
+import * as testimonials from "../controllers/testimonialController.js";
+import * as auth from "../controllers/authController.js";
 import * as health from "../controllers/healthController.js";
-import {requireAdmin} from "../middleware/requireAdmin.js";
+import {requireAuth} from "../middleware/authMiddleware.js";
 
 const router = Router();
 
@@ -37,16 +39,28 @@ router.get("/posts/:slug", posts.getOne);
 router.put("/posts/:slug", posts.update);
 router.delete("/posts/:slug", posts.remove);
 
-// Consultation bookings
-router.get("/bookings", requireAdmin, bookings.list);
+// Auth
+router.post("/auth/login", auth.login);
+router.get("/auth/me", requireAuth, auth.me);
+router.post("/auth/logout", auth.logout);
+
+// Consultation bookings (list is admin-only)
+router.get("/bookings", requireAuth, bookings.list);
 router.post("/bookings", bookings.create);
 
-// Customers
-router.get("/customers", requireAdmin, customers.list);
+// Customers (list is admin-only)
+router.get("/customers", requireAuth, customers.list);
 router.post("/customers", customers.create);
 
 // Reviews (public read + submit)
 router.get("/reviews", reviews.list);
 router.post("/reviews", reviews.create);
+
+// Testimonials
+router.get("/testimonials", testimonials.list);
+router.post("/testimonials", testimonials.create);
+router.get("/testimonials/:id", testimonials.getOne);
+router.put("/testimonials/:id", testimonials.update);
+router.delete("/testimonials/:id", testimonials.remove);
 
 export default router;

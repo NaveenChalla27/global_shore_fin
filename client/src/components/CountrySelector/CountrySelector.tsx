@@ -38,20 +38,25 @@ export default function CountrySelector() {
                 <ul className={styles.menu} role="listbox" aria-label="Select country">
                     {countries.map((c) => {
                         const active = c.code === country.code;
+                        const comingSoon = c.status === "coming-soon";
                         return (
                             <li key={c.code}>
                                 <button
                                     type="button"
-                                    className={`${styles.item} ${active ? styles.itemActive : ""}`}
+                                    className={`${styles.item} ${active ? styles.itemActive : ""} ${
+                                        comingSoon ? styles.itemDisabled : ""
+                                    }`}
                                     role="option"
                                     aria-selected={active}
+                                    disabled={comingSoon}
                                     onClick={() => {
+                                        if (comingSoon) return;
                                         setCountryCode(c.code);
                                         setOpen(false);
                                     }}
                                 >
                                     <span className={styles.itemName}>{c.name}</span>
-                                    {c.status === "coming-soon" && <span className={styles.badge}>Soon</span>}
+                                    {comingSoon && <span className={styles.badge}>Soon</span>}
                                 </button>
                             </li>
                         );

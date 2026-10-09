@@ -63,7 +63,6 @@ export async function deleteCountry(code) {
     await saveAll(data);
 }
 
-// ---- nested services ----
 function locateCountry(data, code) {
     const country = data.countries.find((c) => eq(c.code, code));
     if (!country) throw new HttpError(404, "Country not found");

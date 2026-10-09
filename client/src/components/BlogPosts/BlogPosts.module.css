@@ -18,7 +18,7 @@
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px -20px rgba(13, 59, 110, 0.2);
+    box-shadow: 0 20px 40px -20px rgba(26, 122, 150, 0.2);
 }
 
 .thumb {
@@ -37,12 +37,12 @@
 
 .thumb2 {
     composes: thumb;
-    background: linear-gradient(135deg, #1d4e89, #2a9d8f);
+    background: linear-gradient(135deg, #1a7a96, #6bbfd8);
 }
 
 .thumb3 {
     composes: thumb;
-    background: linear-gradient(135deg, #264653, #2a9d8f);
+    background: linear-gradient(135deg, #0e3a45, #6bbfd8);
 }
 
 .body {
@@ -54,7 +54,7 @@
 
 .tag {
     display: inline-block;
-    background: rgba(15, 110, 86, 0.1);
+    background: rgba(36, 145, 175, 0.1);
     color: var(--teal);
     font-size: 12px;
     font-weight: 600;

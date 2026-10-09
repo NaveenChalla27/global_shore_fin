@@ -2,9 +2,10 @@ import {Link} from "react-router-dom";
 import {useEffect} from "react";
 import shared from "../styles/shared.module.css";
 import styles from "./ServicePage.module.css";
-import {SERVICE_CATEGORIES} from "../data/serviceDetails";
+import {useServices} from "../context/ServicesContext";
 
 export default function ServicesIndexPage() {
+    const {categories} = useServices();
     useEffect(() => {
         window.scrollTo({top: 0, behavior: "instant" as ScrollBehavior});
         document.title = "Services — Global Shore Fin Services";
@@ -24,7 +25,7 @@ export default function ServicesIndexPage() {
 
             <section className={styles.body}>
                 <div className={shared.container}>
-                    {SERVICE_CATEGORIES.map((cat) => (
+                    {categories.map((cat) => (
                         <div key={cat.slug} className={styles.category}>
                             <h2>{cat.name}</h2>
                             <p>{cat.blurb}</p>

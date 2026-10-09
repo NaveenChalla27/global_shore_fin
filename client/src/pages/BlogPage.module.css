@@ -1,5 +1,5 @@
 .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, #0a2c54 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, #0e3a45 100%);
     color: var(--white);
     padding: var(--s-10) 0;
 }
@@ -83,7 +83,7 @@
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px -20px rgba(13, 59, 110, 0.2);
+    box-shadow: 0 20px 40px -20px rgba(26, 122, 150, 0.2);
     border-color: var(--teal);
     text-decoration: none;
 }
@@ -111,7 +111,7 @@
 
 .tag {
     display: inline-block;
-    background: rgba(15, 110, 86, 0.1);
+    background: rgba(36, 145, 175, 0.1);
     color: var(--teal);
     font-size: 12px;
     font-weight: 600;
@@ -145,7 +145,7 @@
 
 /* Detail page */
 .detailHero {
-    background: linear-gradient(135deg, var(--navy) 0%, #0a2c54 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, #0e3a45 100%);
     color: var(--white);
     padding: var(--s-10) 0 var(--s-8);
 }

@@ -22,16 +22,7 @@
         {"num": "15+", "label": "Years Combined Experience"},
         {"num": "50", "label": "US States Covered"},
         {"num": "98%", "label": "Client Retention Rate"}
-      ],
-      "contacts": {
-        "phone": "+1 (203) 435-3563",
-        "phoneHref": "tel:+12034353563",
-        "email": "us@globalshorefinservices.com",
-        "emailHref": "mailto:us@globalshorefinservices.com",
-        "hours": "Mon–Fri: 9AM – 7PM (CST)",
-        "whatsapp": "12034353563",
-        "address": "Antioch, TN 37013, USA"
-      }
+      ]
     },
     {
       "code": "IN",
@@ -55,16 +46,7 @@
         {"num": "28", "label": "States & UTs"},
         {"num": "GST", "label": "Registered"},
         {"num": "Pan-India", "label": "Coverage"}
-      ],
-      "contacts": {
-        "phone": "+91 80 4718 5000",
-        "phoneHref": "tel:+918047185000",
-        "email": "in@globalshorefinservices.com",
-        "emailHref": "mailto:in@globalshorefinservices.com",
-        "hours": "Mon–Sat: 10AM – 7PM (IST)",
-        "whatsapp": "918047185000",
-        "address": "Bengaluru, Karnataka, India"
-      }
+      ]
     },
     {
       "code": "UK",
@@ -88,49 +70,7 @@
         {"num": "MTD", "label": "Compliant"},
         {"num": "ACCA", "label": "Supervised"},
         {"num": "UK-wide", "label": "Coverage"}
-      ],
-      "contacts": {
-        "phone": "+44 20 3870 1234",
-        "phoneHref": "tel:+442038701234",
-        "email": "uk@globalshorefinservices.com",
-        "emailHref": "mailto:uk@globalshorefinservices.com",
-        "hours": "Mon–Fri: 9AM – 6PM (GMT)",
-        "whatsapp": "442038701234",
-        "address": "London, United Kingdom"
-      }
-    },
-    {
-      "code": "AU",
-      "name": "Australia",
-      "short": "AU",
-      "flag": "🇦🇺",
-      "status": "coming-soon",
-      "eyebrow": "Australia Financial Services",
-      "heroTitle": "Your Australia Financial Partner — Payroll, GST, Accounting & Compliance.",
-      "heroSub": "Expert services for Australian businesses, contractors, and expats. Coming soon.",
-      "trustBadges": ["ATO Registered", "CPA Australia", "STP Compliant", "All States Covered"],
-      "services": [
-        {"key": "payroll", "title": "Payroll & STP", "desc": "Single Touch Payroll, super, and award compliance."},
-        {"key": "tax", "title": "Income Tax & GST", "desc": "BAS, IAS, individual and company tax returns."},
-        {"key": "accounting", "title": "Accounting", "desc": "Bookkeeping, Xero, MYOB, and management accounts."},
-        {"key": "compliance", "title": "Compliance", "desc": "ASIC, ATO, and FBT compliance."},
-        {"key": "formation", "title": "Company Formation", "desc": "Pty Ltd setup, ABN, TFN, and GST registration."}
-      ],
-      "stats": [
-        {"num": "Soon", "label": "Launching 2026"},
-        {"num": "8", "label": "States & Territories"},
-        {"num": "ATO", "label": "Registered"},
-        {"num": "CPA", "label": "Supervised"}
-      ],
-      "contacts": {
-        "phone": "+61 2 8000 1234",
-        "phoneHref": "tel:+61280001234",
-        "email": "au@globalshorefinservices.com",
-        "emailHref": "mailto:au@globalshorefinservices.com",
-        "hours": "Mon–Fri: 9AM – 6PM (AEST)",
-        "whatsapp": "61280001234",
-        "address": "Sydney, NSW, Australia"
-      }
+      ]
     },
     {
       "code": "CA",
@@ -154,16 +94,7 @@
         {"num": "10", "label": "Provinces Covered"},
         {"num": "CRA", "label": "Registered"},
         {"num": "CPA", "label": "Supervised"}
-      ],
-      "contacts": {
-        "phone": "+1 (416) 555-0123",
-        "phoneHref": "tel:+14165550123",
-        "email": "ca@globalshorefinservices.com",
-        "emailHref": "mailto:ca@globalshorefinservices.com",
-        "hours": "Mon–Fri: 9AM – 6PM (EST)",
-        "whatsapp": "14165550123",
-        "address": "Toronto, ON, Canada"
-      }
+      ]
     }
   ]
 }

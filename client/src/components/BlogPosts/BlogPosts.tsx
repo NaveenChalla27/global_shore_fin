@@ -4,21 +4,23 @@ import {IconArrow} from "../Icons";
 import shared from "../../styles/shared.module.css";
 import styles from "./BlogPosts.module.css";
 import {fetchPosts, type Post} from "../../api/countries";
+import {useCountry} from "../../context/CountryContext";
 
 const VALID_THUMBS = new Set(["thumb", "thumb2", "thumb3"]);
 
 export default function BlogPosts() {
+    const {country} = useCountry();
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
         const ctrl = new AbortController();
-        fetchPosts(ctrl.signal)
+        fetchPosts(ctrl.signal, country.code)
         .then((list) => setPosts(list.slice(0, 3)))
         .catch((err) => {
             if ((err as Error).name !== "AbortError") console.warn("[BlogPosts]", err);
         });
         return () => ctrl.abort();
-    }, []);
+    }, [country.code]);
 
     if (posts.length === 0) return null;
 

@@ -1,5 +1,6 @@
 import {createContext, useCallback, useContext, useEffect, useState, type ReactNode} from "react";
 import {fetchContacts, type Contacts} from "../api/countries";
+import {useCountry} from "./CountryContext";
 
 type ContactsContextValue = {
     contacts: Contacts;
@@ -11,23 +12,25 @@ type ContactsContextValue = {
 const ContactsContext = createContext<ContactsContextValue | null>(null);
 
 export function ContactsProvider({children}: {children: ReactNode}) {
+    const {country} = useCountry();
     const [contacts, setContacts] = useState<Contacts>({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [reloadKey, setReloadKey] = useState(0);
 
     useEffect(() => {
+        if (!country.code) return;
         const ctrl = new AbortController();
         setLoading(true);
         setError(null);
-        fetchContacts(ctrl.signal)
+        fetchContacts(ctrl.signal, country.code)
         .then((data) => setContacts(data))
         .catch((err) => {
             if ((err as Error).name !== "AbortError") setError((err as Error).message);
         })
         .finally(() => setLoading(false));
         return () => ctrl.abort();
-    }, [reloadKey]);
+    }, [reloadKey, country.code]);
 
     const refresh = useCallback(() => setReloadKey((k) => k + 1), []);
 

@@ -127,7 +127,7 @@ export default function Header() {
                     </button>
                     <button
                         type="button"
-                        className={`${shared.btnSecondary} ${styles.reviewBtn}`}
+                        className={`${shared.btnPrimary} ${styles.reviewBtn}`}
                         onClick={() => setReviewOpen(true)}
                     >
                         Write a Review

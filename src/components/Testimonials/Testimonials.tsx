@@ -1,6 +1,5 @@
 import {useCallback, useEffect, useState} from "react";
 import {IconQuote} from "../Icons";
-import ReviewModal from "../ReviewModal/ReviewModal";
 import shared from "../../styles/shared.module.css";
 import styles from "./Testimonials.module.css";
 import {fetchReviews, fetchTestimonials, type Review, type Testimonial} from "../../api/countries";
@@ -29,9 +28,7 @@ const reviewToCard = (r: Review): Testimonial => ({
 export default function Testimonials() {
     const {country} = useCountry();
     const [items, setItems] = useState<Testimonial[]>([]);
-    const [open, setOpen] = useState(false);
     const [reload, setReload] = useState(0);
-    const close = useCallback(() => setOpen(false), []);
     const refresh = useCallback(() => setReload((n) => n + 1), []);
 
     useEffect(() => {
@@ -62,15 +59,6 @@ export default function Testimonials() {
                     <span className={shared.eyebrow}>What Clients Say</span>
                     <h2>Trusted by Businesses &amp; Individuals Across {country.name}</h2>
                 </div>
-                <div className={styles.toolbar}>
-                    <div className={styles.summary}>
-                        <strong>Worked with us?</strong>
-                        <span>Share your experience and help others choose the right partner.</span>
-                    </div>
-                    <button type="button" className={shared.btnSecondary} onClick={() => setOpen(true)}>
-                        Write a Review
-                    </button>
-                </div>
                 <div className={styles.grid}>
                     {items.map((t) => (
                         <div className={styles.card} key={t.id}>
@@ -89,14 +77,6 @@ export default function Testimonials() {
                         </div>
                     ))}
                 </div>
-                {open && (
-                    <ReviewModal
-                        countryCode={country.code}
-                        countryName={country.name}
-                        onClose={close}
-                        onSubmitted={refresh}
-                    />
-                )}
             </div>
         </section>
     );

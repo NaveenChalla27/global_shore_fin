@@ -35,6 +35,11 @@ export default function Testimonials() {
     const refresh = useCallback(() => setReload((n) => n + 1), []);
 
     useEffect(() => {
+        window.addEventListener("reviews:updated", refresh);
+        return () => window.removeEventListener("reviews:updated", refresh);
+    }, [refresh]);
+
+    useEffect(() => {
         const controller = new AbortController();
         Promise.all([fetchTestimonials(controller.signal, country.code), fetchReviews(controller.signal, country.code)])
             .then(([testimonials, reviews]) =>

@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import {createPortal} from "react-dom";
 import {Link, useLocation} from "react-router-dom";
 import {IconClock, IconMail, IconMenu, IconPhone} from "../Icons";
@@ -8,11 +8,17 @@ import CountrySelector from "../CountrySelector/CountrySelector";
 import {useContacts} from "../../context/ContactsContext";
 import {useBooking} from "../../context/BookingContext";
 import {useServices} from "../../context/ServicesContext";
+import {useCountry} from "../../context/CountryContext";
+import ReviewModal from "../ReviewModal/ReviewModal";
 
 export default function Header() {
     const {contacts} = useContacts();
     const {open: openBooking} = useBooking();
     const {categories} = useServices();
+    const {country} = useCountry();
+    const [reviewOpen, setReviewOpen] = useState(false);
+    const closeReview = useCallback(() => setReviewOpen(false), []);
+    const onReviewSubmitted = useCallback(() => window.dispatchEvent(new Event("reviews:updated")), []);
     const [megaOpen, setMegaOpen] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -119,6 +125,13 @@ export default function Header() {
                     >
                         <IconMenu />
                     </button>
+                    <button
+                        type="button"
+                        className={`${shared.btnSecondary} ${styles.reviewBtn}`}
+                        onClick={() => setReviewOpen(true)}
+                    >
+                        Write a Review
+                    </button>
                     <button type="button" className={shared.btnPrimary} onClick={() => openBooking({})}>
                         Book Consultation
                     </button>
@@ -190,11 +203,29 @@ export default function Header() {
                                 <Link to="/#contact" onClick={() => setMobileOpen(false)}>
                                     Contact
                                 </Link>
+                                <button
+                                    type="button"
+                                    className={styles.mobileToggle}
+                                    onClick={() => {
+                                        setMobileOpen(false);
+                                        setReviewOpen(true);
+                                    }}
+                                >
+                                    <span>Write a Review</span>
+                                </button>
                             </nav>
                         </div>
                     </>,
                     document.body
                 )}
+            {reviewOpen && (
+                <ReviewModal
+                    countryCode={country.code}
+                    countryName={country.name}
+                    onClose={closeReview}
+                    onSubmitted={onReviewSubmitted}
+                />
+            )}
         </header>
     );
 }

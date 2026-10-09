@@ -50,7 +50,7 @@ export default function Footer() {
                                 <Link to="/#blog">Resources</Link>
                             </li>
                             <li>
-                                <Link to="/#process">How It Works</Link>
+                                <Link to="/#process">Our Process</Link>
                             </li>
                             <li>
                                 <Link to="/#contact">Contact</Link>

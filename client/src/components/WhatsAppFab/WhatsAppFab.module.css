@@ -1,0 +1,21 @@
+.fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 28px -8px rgba(37, 211, 102, 0.6);
+    z-index: 60;
+    transition: transform 0.2s ease;
+}
+
+.fab:hover {
+    transform: scale(1.08);
+    text-decoration: none;
+}

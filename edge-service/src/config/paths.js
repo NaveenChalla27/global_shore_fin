@@ -11,6 +11,7 @@ export const CONTACTS_FILE = join(DATA_DIR, "contacts.json");
 export const POSTS_FILE = join(DATA_DIR, "posts.json");
 export const BOOKINGS_FILE = join(DATA_DIR, "bookings.json");
 export const CUSTOMERS_FILE = join(DATA_DIR, "customers.json");
+export const REVIEWS_FILE = join(DATA_DIR, "reviews.json");
 export const SPEC_FILE = join(ROOT_DIR, "openapi.yaml");
 
 export const PORT = Number(process.env.PORT) || 4000;

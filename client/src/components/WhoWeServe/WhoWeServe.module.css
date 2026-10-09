@@ -1,0 +1,39 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--s-3);
+}
+
+.card {
+    background: white;
+    border-radius: var(--radius);
+    padding: var(--s-3);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--teal);
+    background: rgba(15, 110, 86, 0.04);
+}
+
+.iconCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(247, 144, 9, 0.12);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 15px;
+}

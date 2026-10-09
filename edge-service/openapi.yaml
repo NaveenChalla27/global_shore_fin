@@ -17,6 +17,7 @@ tags:
   - name: Posts
   - name: Bookings
   - name: Customers
+  - name: Reviews
 
 paths:
   /api/health:
@@ -310,6 +311,38 @@ paths:
               schema: {$ref: "#/components/schemas/Customer"}
         "400": {$ref: "#/components/responses/BadRequest"}
 
+  /api/reviews:
+    get:
+      tags: [Reviews]
+      summary: List customer reviews (newest first)
+      responses:
+        "200":
+          description: List wrapper
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [reviews]
+                properties:
+                  reviews:
+                    type: array
+                    items: {$ref: "#/components/schemas/Review"}
+    post:
+      tags: [Reviews]
+      summary: Submit a new review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/ReviewInput"}
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Review"}
+        "400": {$ref: "#/components/responses/BadRequest"}
+
 components:
   parameters:
     CountryCode:
@@ -513,6 +546,26 @@ components:
     Customer:
       allOf:
         - {$ref: "#/components/schemas/CustomerInput"}
+        - type: object
+          required: [id, createdAt]
+          properties:
+            id: {type: string}
+            createdAt: {type: string, format: date-time}
+
+    ReviewInput:
+      type: object
+      required: [name, rating, comment]
+      properties:
+        name: {type: string, minLength: 1}
+        rating: {type: integer, minimum: 1, maximum: 5}
+        comment: {type: string, minLength: 1, maxLength: 2000}
+        title: {type: string}
+        country: {type: string}
+        service: {type: string}
+
+    Review:
+      allOf:
+        - {$ref: "#/components/schemas/ReviewInput"}
         - type: object
           required: [id, createdAt]
           properties:

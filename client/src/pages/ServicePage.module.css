@@ -1,0 +1,280 @@
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0a2c54 100%);
+    color: var(--white);
+    padding: var(--s-12) 0 var(--s-10);
+}
+
+.crumbs {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    margin-bottom: var(--s-2);
+}
+
+.crumbs a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+.crumbs a:hover {
+    text-decoration: underline;
+}
+
+.crumbs span {
+    margin: 0 8px;
+    opacity: 0.5;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 0 0 var(--s-2);
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 720px;
+    font-size: 19px;
+    margin: 0;
+}
+
+.body {
+    padding: var(--s-10) 0;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: var(--s-8);
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.block {
+    margin-bottom: var(--s-8);
+}
+
+.block h2 {
+    font-size: 28px;
+    color: var(--navy);
+    margin: 0 0 var(--s-3);
+}
+
+.block p {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.list li {
+    position: relative;
+    padding-left: 28px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.15;
+}
+
+.list li::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+}
+
+.faq {
+    border-top: 1px solid var(--border);
+}
+
+.faqItem {
+    border-bottom: 1px solid var(--border);
+    padding: var(--s-3) 0;
+}
+
+.faqItem h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: var(--navy);
+}
+
+.faqItem p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.aside {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    padding: var(--s-4);
+    border: 1px solid var(--border);
+}
+
+.aside h4 {
+    margin: 0 0 var(--s-2);
+    color: var(--navy);
+    font-size: 18px;
+}
+
+.aside p {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin: 0 0 var(--s-3);
+}
+
+.related {
+    margin-top: var(--s-4);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--border);
+}
+
+.related h5 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+}
+
+.related ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.related li {
+    margin-bottom: 6px;
+}
+
+.related a {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 14.5px;
+}
+
+.related a:hover {
+    color: var(--teal);
+    text-decoration: underline;
+}
+
+.bottomCta {
+    background: var(--bg-light);
+    padding: var(--s-8) 0;
+    text-align: center;
+}
+
+.bottomCta h2 {
+    color: var(--navy);
+    margin: 0 0 var(--s-2);
+}
+
+.bottomCta p {
+    color: var(--muted);
+    margin: 0 0 var(--s-3);
+}
+
+/* Index page */
+.indexHero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0a2c54 100%);
+    color: var(--white);
+    padding: var(--s-10) 0;
+    text-align: center;
+}
+
+.indexHero h1 {
+    color: var(--white);
+    margin: 0 0 var(--s-2);
+}
+
+.indexHero p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 auto;
+    max-width: 720px;
+    font-size: 18px;
+}
+
+.category {
+    padding: var(--s-8) 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.category:last-child {
+    border-bottom: none;
+}
+
+.category h2 {
+    color: var(--navy);
+    margin: 0 0 8px;
+}
+
+.category > p {
+    color: var(--muted);
+    margin: 0 0 var(--s-4);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--s-3);
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--s-3);
+    background: var(--white);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.card:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 59, 110, 0.08);
+}
+
+.card h3 {
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-size: 18px;
+}
+
+.card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.5;
+}

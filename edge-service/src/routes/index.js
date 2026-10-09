@@ -5,6 +5,7 @@ import * as contacts from "../controllers/contactController.js";
 import * as posts from "../controllers/postController.js";
 import * as bookings from "../controllers/bookingController.js";
 import * as customers from "../controllers/customerController.js";
+import * as reviews from "../controllers/reviewController.js";
 import * as health from "../controllers/healthController.js";
 import {requireAdmin} from "../middleware/requireAdmin.js";
 
@@ -43,5 +44,9 @@ router.post("/bookings", bookings.create);
 // Customers
 router.get("/customers", requireAdmin, customers.list);
 router.post("/customers", customers.create);
+
+// Reviews (public read + submit)
+router.get("/reviews", reviews.list);
+router.post("/reviews", reviews.create);
 
 export default router;

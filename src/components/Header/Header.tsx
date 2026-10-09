@@ -104,7 +104,7 @@ export default function Header() {
                     <Link to="/#industries">Industries</Link>
                     <Link to="/#reviews">Reviews</Link>
                     <Link to="/blog">Resources</Link>
-                    <Link to="/careers">Careers</Link>
+                    <Link to="/#process">How It Works</Link>
                     <Link to="/#contact" className={styles.navLinkBtn}>
                         Contact
                     </Link>
@@ -184,8 +184,8 @@ export default function Header() {
                                 <Link to="/blog" onClick={() => setMobileOpen(false)}>
                                     Resources
                                 </Link>
-                                <Link to="/careers" onClick={() => setMobileOpen(false)}>
-                                    Careers
+                                <Link to="/#process" onClick={() => setMobileOpen(false)}>
+                                    How It Works
                                 </Link>
                                 <Link to="/#contact" onClick={() => setMobileOpen(false)}>
                                     Contact

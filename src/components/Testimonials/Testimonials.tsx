@@ -51,7 +51,7 @@ export default function Testimonials() {
     }, [country.code, reload]);
 
     return (
-        <section className={shared.section}>
+        <section className={shared.section} id="reviews">
             <div className={shared.container}>
                 <div className={shared.sectionHead}>
                     <span className={shared.eyebrow}>What Clients Say</span>

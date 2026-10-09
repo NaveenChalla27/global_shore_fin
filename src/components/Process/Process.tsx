@@ -11,7 +11,7 @@ const steps = [
 
 export default function Process() {
     return (
-        <section className={shared.sectionAlt}>
+        <section className={shared.sectionAlt} id="process">
             <div className={shared.container}>
                 <div className={shared.sectionHead}>
                     <span className={shared.eyebrow}>How It Works</span>

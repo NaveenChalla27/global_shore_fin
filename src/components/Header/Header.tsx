@@ -102,6 +102,7 @@ export default function Header() {
                         )}
                     </span>
                     <Link to="/#industries">Industries</Link>
+                    <Link to="/#reviews">Reviews</Link>
                     <Link to="/blog">Resources</Link>
                     <Link to="/careers">Careers</Link>
                     <Link to="/#contact" className={styles.navLinkBtn}>
@@ -176,6 +177,9 @@ export default function Header() {
                                 )}
                                 <Link to="/#industries" onClick={() => setMobileOpen(false)}>
                                     Industries
+                                </Link>
+                                <Link to="/#reviews" onClick={() => setMobileOpen(false)}>
+                                    Reviews
                                 </Link>
                                 <Link to="/blog" onClick={() => setMobileOpen(false)}>
                                     Resources

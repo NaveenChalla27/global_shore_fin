@@ -79,7 +79,7 @@ export default function Header() {
             </div>
             <div className={`${shared.container} ${styles.inner}`}>
                 <nav className={styles.nav} aria-label="Primary">
-                    <Link to="/#about">About</Link>
+                    <Link to="/#about">Why Us</Link>
                     <span className={styles.navItem} onMouseEnter={openMega} onMouseLeave={scheduleClose}>
                         <Link to="/services">Services ▾</Link>
                         {megaOpen && (
@@ -136,7 +136,7 @@ export default function Header() {
                         <div id="mobile-drawer" className={styles.mobileDrawer} role="dialog" aria-modal="true">
                             <nav className={styles.mobileNav} aria-label="Mobile">
                                 <Link to="/#about" onClick={() => setMobileOpen(false)}>
-                                    About
+                                    Why Us
                                 </Link>
                                 <button
                                     type="button"

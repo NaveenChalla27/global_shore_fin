@@ -41,7 +41,7 @@ export default function Footer() {
                         <h5>Quick Links</h5>
                         <ul>
                             <li>
-                                <Link to="/#about">About Us</Link>
+                                <Link to="/#about">Why Global Shore</Link>
                             </li>
                             <li>
                                 <Link to="/#industries">Industries</Link>

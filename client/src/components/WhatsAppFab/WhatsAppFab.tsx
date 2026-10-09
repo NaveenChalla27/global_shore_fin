@@ -4,7 +4,8 @@ import {useContacts} from "../../context/ContactsContext";
 
 export default function WhatsAppFab() {
     const {contacts} = useContacts();
-    const number = contacts.whatsapp ?? "10000000000";
+    const number = contacts.whatsapp;
+    if (!number) return null;
     return (
         <a
             className={styles.fab}

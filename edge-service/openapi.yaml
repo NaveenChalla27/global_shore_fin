@@ -17,6 +17,8 @@ tags:
   - name: Contacts
   - name: Posts
   - name: Bookings
+  - name: Customers
+  - name: Reviews
   - name: Testimonials
 
 paths:
@@ -341,6 +343,70 @@ paths:
               schema: {$ref: "#/components/schemas/Booking"}
         "400": {$ref: "#/components/responses/BadRequest"}
 
+  /api/customers:
+    get:
+      tags: [Customers]
+      summary: List captured customers
+      responses:
+        "200":
+          description: List wrapper
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [customers]
+                properties:
+                  customers:
+                    type: array
+                    items: {$ref: "#/components/schemas/Customer"}
+    post:
+      tags: [Customers]
+      summary: Capture a new customer record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/CustomerInput"}
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Customer"}
+        "400": {$ref: "#/components/responses/BadRequest"}
+
+  /api/reviews:
+    get:
+      tags: [Reviews]
+      summary: List customer reviews (newest first)
+      responses:
+        "200":
+          description: List wrapper
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [reviews]
+                properties:
+                  reviews:
+                    type: array
+                    items: {$ref: "#/components/schemas/Review"}
+    post:
+      tags: [Reviews]
+      summary: Submit a new review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/ReviewInput"}
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/Review"}
+        "400": {$ref: "#/components/responses/BadRequest"}
+
   /api/testimonials:
     get:
       tags: [Testimonials]
@@ -624,6 +690,48 @@ components:
     Booking:
       allOf:
         - {$ref: "#/components/schemas/BookingInput"}
+        - type: object
+          required: [id, createdAt]
+          properties:
+            id: {type: string}
+            createdAt: {type: string, format: date-time}
+
+    CustomerInput:
+      type: object
+      required: [name, email]
+      properties:
+        name: {type: string, minLength: 1}
+        email: {type: string, format: email}
+        phone: {type: string}
+        country: {type: string}
+        company: {type: string}
+        service: {type: string}
+        message: {type: string}
+        source: {type: string, description: "Where the form was submitted from"}
+
+    Customer:
+      allOf:
+        - {$ref: "#/components/schemas/CustomerInput"}
+        - type: object
+          required: [id, createdAt]
+          properties:
+            id: {type: string}
+            createdAt: {type: string, format: date-time}
+
+    ReviewInput:
+      type: object
+      required: [name, rating, comment]
+      properties:
+        name: {type: string, minLength: 1}
+        rating: {type: integer, minimum: 1, maximum: 5}
+        comment: {type: string, minLength: 1, maxLength: 2000}
+        title: {type: string}
+        country: {type: string}
+        service: {type: string}
+
+    Review:
+      allOf:
+        - {$ref: "#/components/schemas/ReviewInput"}
         - type: object
           required: [id, createdAt]
           properties:

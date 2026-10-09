@@ -4,6 +4,8 @@ import * as countries from "../controllers/countryController.js";
 import * as contacts from "../controllers/contactController.js";
 import * as posts from "../controllers/postController.js";
 import * as bookings from "../controllers/bookingController.js";
+import * as customers from "../controllers/customerController.js";
+import * as reviews from "../controllers/reviewController.js";
 import * as testimonials from "../controllers/testimonialController.js";
 import * as auth from "../controllers/authController.js";
 import * as health from "../controllers/healthController.js";
@@ -45,6 +47,14 @@ router.post("/auth/logout", auth.logout);
 // Consultation bookings (list is admin-only)
 router.get("/bookings", requireAuth, bookings.list);
 router.post("/bookings", bookings.create);
+
+// Customers (list is admin-only)
+router.get("/customers", requireAuth, customers.list);
+router.post("/customers", customers.create);
+
+// Reviews (public read + submit)
+router.get("/reviews", reviews.list);
+router.post("/reviews", reviews.create);
 
 // Testimonials
 router.get("/testimonials", testimonials.list);

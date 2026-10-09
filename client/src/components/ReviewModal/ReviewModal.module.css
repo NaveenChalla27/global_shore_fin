@@ -1,0 +1,243 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(14, 58, 69, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.18s ease-out;
+}
+
+.modal {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    max-height: calc(100dvh - 40px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(14, 58, 69, 0.35);
+    animation: pop 0.2s ease-out;
+}
+
+.close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #f2f4f7;
+    color: var(--navy);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.close:hover {
+    background: #e4e7ec;
+}
+
+.head {
+    padding: 24px 28px 14px;
+    border-bottom: 1px solid #eef0f4;
+    flex-shrink: 0;
+}
+
+.head h3 {
+    margin: 0 0 6px;
+    padding-right: 36px;
+    font-size: 22px;
+}
+
+.head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.form {
+    flex: 1;
+    display: grid;
+    gap: 16px;
+    padding: 20px 28px 28px;
+    overflow-y: auto;
+}
+
+.form *,
+.form *::before,
+.form *::after {
+    box-sizing: border-box;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+}
+
+.field label,
+.ratingBox label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(26, 122, 150, 0.12);
+}
+
+.field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.ratingBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px;
+    background: #f8fafb;
+    border: 1px solid #eef0f4;
+    border-radius: 12px;
+}
+
+.rate {
+    display: flex;
+    gap: 8px;
+}
+
+.rate button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.12s;
+}
+
+.rate button:hover {
+    transform: scale(1.15);
+}
+
+.starOn {
+    color: var(--accent);
+}
+
+.starOff {
+    color: #d0d5dd;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.actions button {
+    min-width: 140px;
+}
+
+.error {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fef3f2;
+    color: #b42318;
+    font-size: 14px;
+}
+
+.thanks {
+    padding: 40px 28px;
+    text-align: center;
+}
+
+.thanks h3 {
+    margin: 0 0 8px;
+    color: var(--teal);
+}
+
+.thanks p {
+    margin: 0 0 20px;
+    color: var(--muted);
+}
+
+@media (max-width: 540px) {
+    .backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .head {
+        padding: 16px 16px 10px;
+    }
+
+    .head h3 {
+        font-size: 18px;
+    }
+
+    .form {
+        padding: 16px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    /* font-size >= 16px prevents iOS zoom on focus */
+    .field input,
+    .field textarea {
+        font-size: 16px;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pop {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}

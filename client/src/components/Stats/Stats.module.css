@@ -1,7 +1,8 @@
 .stats {
-    background: var(--navy);
-    color: white;
+    background: var(--white);
+    color: var(--navy);
     padding: var(--s-6) 0;
+    border-top: 1px solid rgba(26, 122, 150, 0.14);
 }
 
 .grid {
@@ -14,12 +15,12 @@
 .num {
     font-size: 48px;
     font-weight: 700;
-    color: var(--white);
+    color: var(--navy);
     line-height: 1;
     margin-bottom: 6px;
 }
 
 .lbl {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--muted);
 }

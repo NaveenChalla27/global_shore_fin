@@ -19,6 +19,27 @@ async function tryFetchJson(url: string, signal?: AbortSignal): Promise<unknown>
     return res.json();
 }
 
+async function errorDetail(res: Response, fallback: string): Promise<string> {
+    try {
+        const err = (await res.json()) as {error?: string};
+        return err.error || fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+async function postJson<T>(url: string, body: unknown, signal?: AbortSignal, credentials?: RequestCredentials): Promise<T> {
+    const res = await fetch(url, {
+        method: "POST",
+        signal,
+        credentials,
+        headers: {"Content-Type": "application/json", Accept: "application/json"},
+        body: JSON.stringify(body),
+    });
+    if (!res.ok) throw new Error(await errorDetail(res, `HTTP ${res.status}`));
+    return (await res.json()) as T;
+}
+
 export async function fetchCountries(signal?: AbortSignal): Promise<Country[]> {
     const data = await tryFetchJson(`${API_BASE}/countries`, signal);
     const list = Array.isArray(data) ? data : (data as CountriesResponse).countries;
@@ -72,22 +93,11 @@ export type Booking = BookingInput & {id: string; createdAt: string};
 export type BookingsResponse = {bookings: Booking[]};
 
 export async function loginAdmin(username: string, password: string, signal?: AbortSignal): Promise<void> {
-    const res = await fetch(`${API_BASE}/auth/login`, {
-        method: "POST",
-        signal,
-        credentials: "include",
-        headers: {"Content-Type": "application/json", Accept: "application/json"},
-        body: JSON.stringify({username, password}),
-    });
-    if (!res.ok) {
-        let detail = "Invalid credentials";
-        try {
-            const err = (await res.json()) as {error?: string};
-            if (err.error) detail = err.error;
-        } catch {
-            /* ignore */
-        }
-        throw new Error(detail);
+    try {
+        await postJson(`${API_BASE}/auth/login`, {username, password}, signal, "include");
+    } catch (err) {
+        const msg = (err as Error).message;
+        throw new Error(msg.startsWith("HTTP ") ? "Invalid credentials" : msg);
     }
 }
 
@@ -112,25 +122,8 @@ export async function fetchBookings(signal?: AbortSignal): Promise<Booking[]> {
     return Array.isArray(list) ? (list as Booking[]) : [];
 }
 
-export async function createBooking(input: BookingInput, signal?: AbortSignal): Promise<Booking> {
-    const res = await fetch(`${API_BASE}/bookings`, {
-        method: "POST",
-        signal,
-        headers: {"Content-Type": "application/json", Accept: "application/json"},
-        body: JSON.stringify(input),
-    });
-    if (!res.ok) {
-        let detail = `HTTP ${res.status}`;
-        try {
-            const err = (await res.json()) as {error?: string};
-            if (err.error) detail = err.error;
-        } catch {
-            /* ignore */
-        }
-        throw new Error(detail);
-    }
-    return (await res.json()) as Booking;
-}
+export const createBooking = (input: BookingInput, signal?: AbortSignal) =>
+    postJson<Booking>(`${API_BASE}/bookings`, input, signal);
 
 export async function fetchPosts(signal?: AbortSignal, countryCode?: string): Promise<Post[]> {
     const url = countryCode
@@ -149,6 +142,7 @@ export type Testimonial = {
     initials: string;
     rating: number;
     country?: string;
+    publishedAt?: string;
 };
 
 export async function fetchTestimonials(signal?: AbortSignal, countryCode?: string): Promise<Testimonial[]> {
@@ -164,6 +158,35 @@ export async function fetchTestimonials(signal?: AbortSignal, countryCode?: stri
         console.warn("[api] fetchTestimonials failed:", err);
         return [];
     }
+}
+
+export type ReviewInput = {
+    name: string;
+    text: string;
+    rating: number;
+    title?: string;
+    service?: string;
+    country?: string;
+};
+
+export type Review = ReviewInput & {id: string; status: string; createdAt: string};
+
+export async function fetchReviews(signal?: AbortSignal, countryCode?: string): Promise<Review[]> {
+    const url = countryCode ? `${API_BASE}/countries/${countryCode}/reviews` : `${API_BASE}/reviews`;
+    try {
+        const data = await tryFetchJson(url, signal);
+        const list = (data as {reviews: Review[]}).reviews;
+        return Array.isArray(list) ? list : [];
+    } catch (err) {
+        if ((err as Error).name === "AbortError") throw err;
+        console.warn("[api] fetchReviews failed:", err);
+        return [];
+    }
+}
+
+export function createReview(input: ReviewInput, signal?: AbortSignal): Promise<Review> {
+    const url = input.country ? `${API_BASE}/countries/${input.country}/reviews` : `${API_BASE}/reviews`;
+    return postJson<Review>(url, input, signal);
 }
 
 export type Faq = {q: string; a: string};

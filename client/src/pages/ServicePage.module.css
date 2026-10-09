@@ -188,22 +188,6 @@
     text-decoration: underline;
 }
 
-.bottomCta {
-    background: var(--bg-light);
-    padding: var(--s-8) 0;
-    text-align: center;
-}
-
-.bottomCta h2 {
-    color: var(--navy);
-    margin: 0 0 var(--s-2);
-}
-
-.bottomCta p {
-    color: var(--muted);
-    margin: 0 0 var(--s-3);
-}
-
 /* Index page */
 .indexHero {
     background: linear-gradient(135deg, var(--navy) 0%, #0e3a45 100%);

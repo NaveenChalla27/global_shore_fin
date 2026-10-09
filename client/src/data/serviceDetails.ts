@@ -1,1 +1,0 @@
-// This file is intentionally empty. Service detail data is now stored in MongoDB and served via /api/service-categories.
